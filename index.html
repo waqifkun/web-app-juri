@@ -1,0 +1,4912 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lembar Nilai Juri | Best Costume, King &amp; Queen</title>
+  <meta name="description" content="Aplikasi penilaian juri offline untuk kategori Best Costume, King, dan Queen dengan generator kode kombinasi SCOREV1 dan rekap peringkat otomatis.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+  </noscript>
+  <script src="https://cdn.tailwindcss.com" defer></script>
+
+  <style>
+    :root {
+      --bg-canvas: #F6F2EA;
+      --bg-surface: #FFFDF9;
+      --bg-recess: #EDE7DC;
+      --bg-hover: #E5DDD0;
+      --ink-primary: #1C1917;
+      --ink-secondary: #524B44;
+      --border-subtle: #D6CEC1;
+      --border-control: #786F65;
+      --accent: #8C2332;
+      --accent-hover: #701A26;
+      --accent-active: #59131D;
+      --accent-ink: #FFFDF9;
+      --accent-soft: #F7E8EA;
+      --focus-ring: #8C2332;
+      --valid-ink: #1B522D;
+      --valid-bg: #E4F2E8;
+      --valid-border: #2C6E42;
+      --error-ink: #991B1B;
+      --error-bg: #FCEAE9;
+      --error-border: #B91C1C;
+      --danger-hover-bg: #B91C1C;
+      --warn-ink: #784402;
+      --warn-bg: #FAF0DC;
+      --warn-border: #9A5B06;
+      --shadow-elevated: 0 12px 32px rgba(28, 25, 23, 0.14);
+      --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    html[data-theme="dark"] {
+      --bg-canvas: #161412;
+      --bg-surface: #211E1B;
+      --bg-recess: #2B2723;
+      --bg-hover: #36312C;
+      --ink-primary: #F3EFE8;
+      --ink-secondary: #BEB6AA;
+      --border-subtle: #3B352F;
+      --border-control: #8F857A;
+      --accent: #A82A3C;
+      --accent-hover: #8F2030;
+      --accent-active: #781927;
+      --accent-ink: #FFFDF9;
+      --accent-soft: #361C21;
+      --accent-text: #F08A95;
+      --focus-ring: #F08A95;
+      --valid-ink: #7BD89B;
+      --valid-bg: #162B1E;
+      --valid-border: #4EA86E;
+      --error-ink: #F79494;
+      --error-bg: #361717;
+      --error-border: #E06666;
+      --danger-hover-bg: #991B1B;
+      --warn-ink: #F0C56E;
+      --warn-bg: #302310;
+      --warn-border: #C4963D;
+      --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.55);
+    }
+
+    html[data-theme="light"] {
+      --accent-text: #8C2332;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      background-color: var(--bg-canvas);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      line-height: 1.55;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Higher specificity keeps pointer cursors intact after deferred Tailwind Preflight loads. */
+    html body a[href], html body button, html body summary, html body select, html body label[for],
+    html body label:has(> input[type="checkbox"], > input[type="radio"]),
+    html body [role="button"], html body [role="link"], html body [role="tab"],
+    html body [role="menuitem"], html body [role="option"], html body [role="switch"],
+    html body input[type="checkbox"], html body input[type="radio"], html body input[type="file"],
+    html body input[type="submit"], html body input[type="button"], html body input[type="reset"],
+    html body input[type="range"], html body input[type="color"] {
+      cursor: pointer;
+    }
+
+    html body :disabled, html body [aria-disabled="true"] {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    code {
+      font-family: var(--font-mono);
+      font-size: 0.86em;
+      padding: 0.08em 0.35em;
+      border-radius: 4px;
+      background-color: var(--bg-recess);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .bullet-list {
+      list-style: disc;
+      margin: 0.25rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 0.75rem;
+      top: -4rem;
+      z-index: 200;
+      background: var(--accent);
+      color: var(--accent-ink);
+      padding: 0.65rem 1rem;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      top: 0.75rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .font-display {
+      font-family: var(--font-display);
+    }
+
+    .font-mono-code {
+      font-family: var(--font-mono);
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 1120px;
+      margin-inline: auto;
+      padding-inline: 1rem;
+    }
+
+    .site-header {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem 1rem;
+      padding-block: 0.9rem;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: var(--ink-primary);
+      margin: 0;
+    }
+
+    .brand-sub {
+      font-size: 0.85rem;
+      color: var(--ink-secondary);
+      margin: 0.1rem 0 0;
+    }
+
+    .header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mode-switch {
+      display: inline-flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      background-color: var(--bg-recess);
+      border: 1px solid var(--border-control);
+      border-radius: 8px;
+      padding: 3px;
+      gap: 4px;
+    }
+
+    .mode-btn {
+      min-height: 44px;
+      padding: 0.45rem 0.9rem;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--ink-primary);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease;
+    }
+
+    .mode-btn:hover {
+      background-color: var(--bg-hover);
+    }
+
+    .mode-btn:active {
+      transform: translateY(1px);
+    }
+
+    .mode-btn[aria-current="page"] {
+      background-color: var(--bg-surface);
+      border-color: var(--border-control);
+      color: var(--accent-text);
+    }
+
+    .btn {
+      min-height: 44px;
+      padding: 0.55rem 1rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      line-height: 1.2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      text-decoration: none;
+      transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease, transform 100ms ease;
+    }
+
+    .btn:hover:not(:disabled) {
+      background-color: var(--bg-hover);
+    }
+
+    .btn:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    .btn-primary {
+      border-radius: 8px;
+      border-color: var(--accent);
+      background-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--accent-hover);
+      border-color: var(--accent-hover);
+    }
+
+    .btn-primary:active:not(:disabled) {
+      background-color: var(--accent-active);
+      border-color: var(--accent-active);
+    }
+
+    .btn-subtle {
+      background-color: var(--bg-recess);
+    }
+
+    .btn-danger {
+      border-color: var(--error-border);
+      background-color: var(--error-bg);
+      color: var(--error-ink);
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      background-color: var(--danger-hover-bg);
+      border-color: var(--danger-hover-bg);
+      color: #FFFDF9;
+    }
+
+    .btn-sm {
+      min-height: 44px;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    .main-area {
+      padding-top: 1.25rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .sheet {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+    }
+
+    .ledger-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 1rem 1.15rem;
+      margin-bottom: 1.25rem;
+      border-top: 3px solid var(--accent);
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--ink-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .field-hint {
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+      margin: 0.3rem 0 0;
+    }
+
+    .input-text, .input-textarea, .input-select {
+      width: 100%;
+      min-height: 44px;
+      padding: 0.55rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      font-size: 0.96rem;
+      line-height: 1.45;
+      scroll-margin-bottom: 130px;
+      transition: border-color 140ms ease, background-color 140ms ease;
+    }
+
+    .input-text:hover, .input-textarea:hover, .input-select:hover {
+      border-color: var(--ink-primary);
+    }
+
+    .input-textarea {
+      min-height: 82px;
+      resize: vertical;
+    }
+
+    .input-invalid {
+      border-color: var(--error-border) !important;
+      background-color: var(--error-bg) !important;
+    }
+
+    .status-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.84rem;
+      color: var(--ink-secondary);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--valid-border);
+      flex-shrink: 0;
+    }
+
+    .status-dot-warn {
+      background-color: var(--warn-border);
+    }
+
+    .strip-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .category-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .tablist {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.5rem;
+    }
+
+    .tab-btn {
+      min-height: 52px;
+      padding: 0.55rem 0.65rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.15rem;
+      transition: background-color 140ms ease, border-color 140ms ease;
+    }
+
+    .tab-btn:hover {
+      background-color: var(--bg-hover);
+    }
+
+    .tab-btn[aria-selected="true"] {
+      background-color: var(--bg-surface);
+      border-color: var(--accent);
+      box-shadow: inset 0 -3px 0 0 var(--accent);
+    }
+
+    .tab-title {
+      font-weight: 700;
+      font-size: 0.92rem;
+      line-height: 1.25;
+      color: var(--ink-primary);
+    }
+
+    .tab-btn[aria-selected="true"] .tab-title {
+      color: var(--accent-text);
+    }
+
+    .tab-meta {
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .panel-header {
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 700;
+      margin: 0;
+      line-height: 1.25;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background-color: var(--bg-recess);
+      border-radius: 3px;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background-color: var(--accent);
+      width: 0%;
+      transition: width 180ms ease;
+    }
+
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+    }
+
+    .filter-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .filter-btn {
+      min-height: 44px;
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .filter-btn:hover {
+      background-color: var(--bg-hover);
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background-color: var(--ink-primary);
+      border-color: var(--ink-primary);
+      color: var(--bg-surface);
+    }
+
+    /* Scoring grids: distinct structure between Best Costume (score only) and King/Queen (score + comment). */
+    .costume-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding: 1rem 1.15rem;
+    }
+
+    .costume-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0.85rem 0.95rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      background-color: var(--bg-surface);
+    }
+
+    .costume-card.is-scored {
+      border-color: var(--border-control);
+    }
+
+    .costume-card.has-error {
+      border-color: var(--error-border);
+      background-color: var(--error-bg);
+    }
+
+    .costume-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .costume-main {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .costume-score-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.45rem;
+    }
+
+    .photo-slot-btn {
+      position: relative;
+      width: 60px;
+      height: 75px;
+      padding: 0;
+      border-radius: 6px;
+      border: 1px dashed var(--border-control);
+      background-color: var(--bg-recess);
+      color: var(--ink-secondary);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      overflow: hidden;
+      flex-shrink: 0;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      transition: border-color 140ms ease, background-color 140ms ease, color 140ms ease;
+    }
+
+    .photo-slot-btn:hover {
+      border-color: var(--accent-text);
+      background-color: var(--bg-hover);
+      color: var(--ink-primary);
+    }
+
+    .photo-slot-btn.has-photo {
+      border-style: solid;
+      border-color: var(--border-control);
+      background-color: var(--bg-recess);
+    }
+
+    .photo-slot-btn.photo-slot-lg {
+      width: 72px;
+      height: 90px;
+    }
+
+    .photo-slot-btn.photo-slot-sm {
+      width: 44px;
+      height: 55px;
+      font-size: 0.68rem;
+    }
+
+    .photo-slot-btn.photo-slot-recap {
+      width: 40px;
+      height: 50px;
+      min-height: 44px;
+    }
+
+    .photo-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-caption-link {
+      min-height: 44px;
+      padding: 0.3rem 0.55rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background-color 140ms ease, border-color 140ms ease;
+    }
+
+    .photo-caption-link:hover {
+      background-color: var(--bg-hover);
+      border-color: var(--border-control);
+    }
+
+    .royalty-header-grid {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .royalty-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    dialog.app-dialog-photo {
+      width: min(840px, calc(100vw - 1.5rem));
+    }
+
+    .lightbox-stage {
+      background-color: #141210;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      min-height: 220px;
+      max-height: 54dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0.5rem;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: calc(54dvh - 1rem);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .lightbox-score-bar {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding: 0.85rem 0.95rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-recess);
+    }
+
+    .lightbox-footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      width: 100%;
+    }
+
+    .lightbox-nav-group {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .photo-processing-bar {
+      padding: 0.65rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+      font-size: 0.86rem;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+    }
+
+    .participant-id-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .ballot-stamp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.35rem;
+      height: 2.1rem;
+      padding: 0 0.4rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .participant-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: var(--ink-primary);
+      word-break: break-word;
+    }
+
+    .score-box {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    .score-input {
+      width: 6.25rem;
+      min-height: 44px;
+      padding: 0.45rem 0.65rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      scroll-margin-bottom: 140px;
+    }
+
+    .score-unit {
+      font-size: 0.82rem;
+      color: var(--ink-secondary);
+      white-space: nowrap;
+    }
+
+    .royalty-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding: 1rem 1.15rem;
+    }
+
+    .royalty-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      background-color: var(--bg-surface);
+    }
+
+    .royalty-card.is-scored {
+      border-color: var(--border-control);
+    }
+
+    .royalty-card.has-error {
+      border-color: var(--error-border);
+      background-color: var(--error-bg);
+    }
+
+    .royalty-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .royalty-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      min-width: 0;
+    }
+
+    .field-error {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--error-ink);
+      margin: 0.15rem 0 0;
+    }
+
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--ink-secondary);
+    }
+
+    .state-box {
+      padding: 2rem 1.25rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .state-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .state-desc {
+      max-width: 34rem;
+      color: var(--ink-secondary);
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .state-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 0.25rem;
+    }
+
+    .alert-box {
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-control);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+    }
+
+    .alert-error {
+      background-color: var(--error-bg);
+      border-color: var(--error-border);
+      color: var(--error-ink);
+    }
+
+    .alert-warn {
+      background-color: var(--warn-bg);
+      border-color: var(--warn-border);
+      color: var(--warn-ink);
+    }
+
+    .alert-valid {
+      background-color: var(--valid-bg);
+      border-color: var(--valid-border);
+      color: var(--valid-ink);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .tag-valid {
+      background-color: var(--valid-bg);
+      color: var(--valid-ink);
+      border-color: var(--valid-border);
+    }
+
+    .tag-warn {
+      background-color: var(--warn-bg);
+      color: var(--warn-ink);
+      border-color: var(--warn-border);
+    }
+
+    .tag-error {
+      background-color: var(--error-bg);
+      color: var(--error-ink);
+      border-color: var(--error-border);
+    }
+
+    .tag-neutral {
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .recap-top-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .recap-box {
+      padding: 1.1rem 1.15rem;
+    }
+
+    .recap-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .judge-chip-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-top: 0.75rem;
+    }
+
+    .judge-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.65rem 0.8rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-recess);
+    }
+
+    .recap-cat-section {
+      margin-bottom: 1.25rem;
+    }
+
+    .recap-cat-header {
+      padding: 0.95rem 1.15rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    /* Responsive leaderboard: stacked cards on phone, crisp table from 640px up */
+    .leaderboard-table-wrap {
+      display: none;
+    }
+
+    .leaderboard-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 0.95rem 1.15rem;
+    }
+
+    .lb-card {
+      padding: 0.85rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .lb-card.rank-1 {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+
+    .lb-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.93rem;
+    }
+
+    .lb-table th {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink-secondary);
+      border-bottom: 1px solid var(--border-control);
+      background-color: var(--bg-recess);
+    }
+
+    .lb-table td {
+      padding: 0.78rem 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+
+    .lb-table tr.rank-1 td {
+      background-color: var(--accent-soft);
+    }
+
+    .lb-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .rank-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2rem;
+      height: 2rem;
+      padding: 0 0.45rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.86rem;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+    }
+
+    .rank-badge-top {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: var(--accent-ink);
+    }
+
+    .avg-score {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: var(--ink-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .judge-breakdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .comment-sheet {
+      padding: 0.95rem 1.15rem 1.15rem;
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-canvas);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .comment-group {
+      padding: 0.75rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      margin-top: 0.6rem;
+    }
+
+    .comment-entry {
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+      border-top: 1px dashed var(--border-subtle);
+    }
+
+    .comment-entry:first-of-type {
+      padding-top: 0.35rem;
+      margin-top: 0.35rem;
+      border-top: 0;
+    }
+
+    .comment-body {
+      margin: 0.15rem 0 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: var(--ink-primary);
+      font-size: 0.92rem;
+    }
+
+    dialog.app-dialog {
+      width: min(680px, calc(100vw - 1.5rem));
+      max-height: calc(100dvh - 2rem);
+      padding: 0;
+      border: 1px solid var(--border-control);
+      border-radius: 10px;
+      background-color: var(--bg-surface);
+      color: var(--ink-primary);
+      box-shadow: var(--shadow-elevated);
+      overflow: hidden;
+    }
+
+    dialog.app-dialog::backdrop {
+      background: rgba(20, 17, 15, 0.62);
+    }
+
+    .dialog-shell {
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100dvh - 2rem);
+    }
+
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1rem 1.15rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .dialog-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .dialog-body {
+      padding: 1.1rem 1.15rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .dialog-footer {
+      padding: 0.85rem 1.15rem;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.6rem;
+      background-color: var(--bg-recess);
+    }
+
+    .code-output {
+      width: 100%;
+      min-height: 120px;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-control);
+      background-color: var(--bg-recess);
+      color: var(--ink-primary);
+      font-family: var(--font-mono);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      word-break: break-all;
+      resize: vertical;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+
+    .summary-item {
+      padding: 0.7rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-recess);
+    }
+
+    .add-participant-grid {
+      display: grid;
+      grid-template-columns: 5.25rem 1fr;
+      gap: 0.55rem;
+      align-items: end;
+    }
+
+    .add-participant-grid button[type="submit"] {
+      grid-column: 1 / -1;
+    }
+
+    .participant-manage-row {
+      display: grid;
+      grid-template-columns: 44px 4.25rem minmax(0, 1fr);
+      gap: 0.5rem;
+      align-items: center;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .participant-manage-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 0.45rem;
+    }
+
+    @media (min-width: 520px) {
+      .add-participant-grid {
+        grid-template-columns: 5.5rem 1fr auto;
+      }
+
+      .add-participant-grid button[type="submit"] {
+        grid-column: auto;
+      }
+
+      .participant-manage-row {
+        grid-template-columns: 44px 4.5rem minmax(0, 1fr) auto;
+      }
+
+      .participant-manage-actions {
+        grid-column: auto;
+      }
+
+      .lightbox-score-bar.has-comment {
+        grid-template-columns: 12rem 1fr;
+        align-items: start;
+      }
+    }
+
+    .mobile-action-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-control);
+      box-shadow: 0 -6px 20px rgba(28, 25, 23, 0.12);
+      padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+    }
+
+    .toast-region {
+      position: fixed;
+      right: 1rem;
+      bottom: calc(5.2rem + env(safe-area-inset-bottom, 0px));
+      z-index: 90;
+      max-width: min(24rem, calc(100vw - 2rem));
+      pointer-events: none;
+    }
+
+    .toast-card {
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-control);
+      background-color: var(--ink-primary);
+      color: var(--bg-surface);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-elevated);
+      pointer-events: auto;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.15rem 0 calc(5.75rem + env(safe-area-inset-bottom, 0px));
+      color: var(--ink-secondary);
+      font-size: 0.84rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .print-only {
+      display: none;
+    }
+
+    /* Tablet breakpoint: 640px+ */
+    @media (min-width: 640px) {
+      .shell {
+        padding-inline: 1.5rem;
+      }
+
+      .ledger-strip {
+        grid-template-columns: 1.15fr 1fr;
+        align-items: end;
+      }
+
+      .strip-actions {
+        justify-content: flex-end;
+      }
+
+      .costume-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .summary-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .leaderboard-cards {
+        display: none;
+      }
+
+      .leaderboard-table-wrap {
+        display: block;
+      }
+
+      .mobile-action-bar {
+        display: none;
+      }
+
+      .main-area {
+        padding-bottom: 2.25rem;
+      }
+
+      .site-footer {
+        padding-bottom: 2rem;
+      }
+
+      .toast-region {
+        bottom: 1.25rem;
+      }
+    }
+
+    /* Desktop breakpoint: 960px+ */
+    @media (min-width: 960px) {
+      .shell {
+        padding-inline: 2rem;
+      }
+
+      .panel-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .royalty-card {
+        grid-template-columns: 20.5rem 1fr;
+        align-items: start;
+        gap: 1.25rem;
+      }
+
+      .recap-top-grid {
+        grid-template-columns: 1.25fr 0.95fr;
+        align-items: start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Print layout for official committee recap sheet */
+    @media print {
+      :root, html[data-theme="dark"] {
+        --bg-canvas: #FFFFFF;
+        --bg-surface: #FFFFFF;
+        --bg-recess: #F3F3F3;
+        --ink-primary: #000000;
+        --ink-secondary: #333333;
+        --border-subtle: #CCCCCC;
+        --border-control: #666666;
+        --accent: #000000;
+        --accent-soft: #F3F3F3;
+      }
+
+      body {
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+
+      .no-print, .site-header, .site-footer, .mobile-action-bar, .toast-region, dialog {
+        display: none !important;
+      }
+
+      .print-only {
+        display: block !important;
+      }
+
+      .shell {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .main-area {
+        padding: 0;
+      }
+
+      .sheet {
+        border: 1px solid #999999;
+        border-radius: 0;
+        break-inside: avoid;
+      }
+
+      .leaderboard-cards {
+        display: none !important;
+      }
+
+      .leaderboard-table-wrap {
+        display: block !important;
+      }
+
+      .recap-cat-section, .recap-cat-section[hidden] {
+        display: block !important;
+        page-break-inside: avoid;
+      }
+
+      #view-scoring {
+        display: none !important;
+      }
+
+      #view-recap, #view-recap[hidden] {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
+
+  <header class="site-header no-print">
+    <div class="shell header-inner">
+      <div>
+        <h1 class="brand-title">Lembar Nilai Juri</h1>
+        <p class="brand-sub">Penilaian Best Costume, King, dan Queen berbasis kode kombinasi</p>
+      </div>
+
+      <div class="header-controls">
+        <nav aria-label="Navigasi utama" class="mode-switch">
+          <button type="button" id="nav-scoring" class="mode-btn" aria-current="page">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <rect x="2" y="1.5" width="12" height="13" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M5 5.5H11M5 8.5H11M5 11.5H8.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+            <span>Penilaian</span>
+          </button>
+          <button type="button" id="nav-recap" class="mode-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 12.5V8.5M6.5 12.5V3.5M11 12.5V6M14.5 12.5H1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+            <span>Rekap &amp; Gabungkan Kode</span>
+          </button>
+        </nav>
+
+        <button type="button" id="theme-toggle" class="btn btn-sm" aria-pressed="false" aria-label="Aktifkan mode gelap untuk ruang panggung redup">
+          <svg id="theme-icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M12.8 10.4A5.5 5.5 0 0 1 5.6 3.2a5.5 5.5 0 1 0 7.2 7.2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+          <svg id="theme-icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" hidden>
+            <circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M8 1.5V3M8 13V14.5M1.5 8H3M13 8H14.5M3.4 3.4L4.5 4.5M11.5 11.5L12.6 12.6M12.6 3.4L11.5 4.5M4.5 11.5L3.4 12.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+          </svg>
+          <span id="theme-label">Mode Gelap</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1" class="shell main-area">
+    <div id="storage-warning" class="alert-box alert-warn" style="margin-bottom: 1rem;" hidden>
+      <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0; margin-top:2px;">
+        <path d="M8 2L14.5 13.5H1.5L8 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M8 6.5V9.5M8 11.5V11.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+      </svg>
+      <div>
+        <strong>Penyimpanan browser tidak tersedia.</strong> Nilai tetap bisa diisi dan diubah ke kode kombinasi, tetapi tidak tersimpan otomatis bila halaman dimuat ulang.
+      </div>
+    </div>
+
+    <!-- Scoring View -->
+    <section id="view-scoring" aria-labelledby="scoring-view-heading">
+      <h2 id="scoring-view-heading" class="sr-only">Halaman Penilaian Juri</h2>
+
+      <div class="sheet ledger-strip">
+        <div>
+          <label for="judge-name-input" class="field-label">Nama atau Kode Juri</label>
+          <input
+            type="text"
+            id="judge-name-input"
+            class="input-text"
+            placeholder="Contoh: Juri 1 atau Budi"
+            maxlength="60"
+            autocomplete="off"
+          >
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.5rem; margin-top:0.45rem;">
+            <span id="autosave-status" class="status-line">
+              <span id="autosave-dot" class="status-dot" aria-hidden="true"></span>
+              <span id="autosave-text">Tersimpan di browser lokal</span>
+            </span>
+            <span id="overall-progress-text" class="status-line tabular" style="font-weight:600;">0/30 peserta dinilai</span>
+          </div>
+        </div>
+
+        <div class="strip-actions">
+          <button type="button" id="open-participants-btn" class="btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="6" cy="5" r="2.25" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M1.75 13C2.1 10.6 3.8 9.25 6 9.25C8.2 9.25 9.9 10.6 10.25 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+              <path d="M12.5 5.5V10.5M10 8H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+            <span>Kelola Peserta</span>
+          </button>
+
+          <button type="button" id="generate-code-btn" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M5.5 4L2 8L5.5 12M10.5 4L14 8L10.5 12M9 2.5L7 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+            <span>Generate Kode Penilaian</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="scoring-error-banner" class="alert-box alert-error" role="alert" style="margin-bottom:1rem;" hidden>
+        <svg width="18" height="18" viewBox="0 0 16 16" fill="none" aria-hidden="true" style="flex-shrink:0; margin-top:2px;">
+          <circle cx="8" cy="8" r="6.25" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M8 4.8V8.5M8 10.8V11.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+        </svg>
+        <div id="scoring-error-banner-text" style="flex:1;"></div>
+      </div>
+
+      <div class="category-bar">
+        <div role="tablist" aria-label="Kategori penilaian" class="tablist" id="category-tablist">
+          <button type="button" role="tab" id="tab-costume" aria-selected="true" aria-controls="panel-scoring" data-category="costume" class="tab-btn">
+            <span class="tab-title">Best Costume</span>
+            <span class="tab-meta tabular" id="tab-meta-costume">0/10 dinilai</span>
+          </button>
+          <button type="button" role="tab" id="tab-king" aria-selected="false" aria-controls="panel-scoring" data-category="king" tabindex="-1" class="tab-btn">
+            <span class="tab-title">King</span>
+            <span class="tab-meta tabular" id="tab-meta-king">0/10 dinilai</span>
+          </button>
+          <button type="button" role="tab" id="tab-queen" aria-selected="false" aria-controls="panel-scoring" data-category="queen" tabindex="-1" class="tab-btn">
+            <span class="tab-title">Queen</span>
+            <span class="tab-meta tabular" id="tab-meta-queen">0/10 dinilai</span>
+          </button>
+        </div>
+      </div>
+
+      <div role="tabpanel" id="panel-scoring" aria-labelledby="tab-costume" class="sheet">
+        <div class="panel-header">
+          <div style="flex:1; min-width:0;">
+            <h3 id="active-category-title" class="section-heading">Best Costume</h3>
+            <p id="active-category-rule" class="field-hint" style="margin-top:0.25rem;">
+              Masukkan nilai angka 0 sampai 100 (mendukung desimal seperti 87.5). Kategori ini tidak menggunakan kolom komentar.
+            </p>
+            <div style="margin-top:0.65rem; max-width:24rem;">
+              <div style="display:flex; justify-content:space-between; gap:0.5rem; font-size:0.8rem; margin-bottom:0.25rem;">
+                <span id="category-progress-label" class="tabular" style="font-weight:600;">0 dari 10 peserta dinilai</span>
+                <span id="category-photo-label" class="tabular" style="color:var(--ink-secondary);">0/10 foto</span>
+                <span id="category-progress-pct" class="tabular" style="color:var(--ink-secondary);">0%</span>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div id="category-progress-bar" class="progress-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="filter-row">
+            <div class="filter-group" role="group" aria-label="Filter status peserta">
+              <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Semua</button>
+              <button type="button" class="filter-btn" data-filter="unscored" aria-pressed="false">Belum dinilai</button>
+              <button type="button" class="filter-btn" data-filter="scored" aria-pressed="false">Sudah dinilai</button>
+            </div>
+            <button type="button" id="quick-bulk-photo-btn" class="btn btn-sm">
+              Unggah Foto Massal
+            </button>
+            <button type="button" id="quick-add-participant-btn" class="btn btn-sm btn-subtle">
+              Kelola Peserta
+            </button>
+          </div>
+        </div>
+
+        <div id="photo-processing-bar" class="photo-processing-bar" role="status" aria-live="polite" style="margin:0.85rem 1.15rem 0;" hidden></div>
+        <div id="scoring-list-container"></div>
+      </div>
+    </section>
+
+    <!-- Recap & Decode View -->
+    <section id="view-recap" aria-labelledby="recap-view-heading" hidden>
+      <div class="print-only" style="margin-bottom:1.25rem; border-bottom:2px solid #000; padding-bottom:0.75rem;">
+        <h2 style="font-family:var(--font-display); font-size:1.5rem; margin:0;">Rekapitulasi Akhir Penilaian Juri</h2>
+        <p id="print-meta" style="margin:0.25rem 0 0; font-size:0.9rem;"></p>
+      </div>
+
+      <div class="recap-top-grid no-print">
+        <div class="sheet recap-box">
+          <h2 id="recap-view-heading" class="section-heading">Rekap &amp; Gabungkan Kode</h2>
+          <p class="field-hint" style="margin-top:0.25rem; margin-bottom:0.85rem;">
+            Tempel satu atau banyak kode kombinasi <code>SCOREV1:</code> dari para juri (bisa dipisah baris baru atau disalin langsung dari pesan chat).
+          </p>
+
+          <label for="recap-codes-input" class="field-label">Daftar Kode Kombinasi Juri</label>
+          <textarea
+            id="recap-codes-input"
+            class="input-textarea font-mono-code"
+            rows="6"
+            placeholder="Tempel satu atau beberapa kode SCOREV1:... di sini (satu kode per baris)"
+            style="font-size:0.84rem;"
+          ></textarea>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0.55rem; margin-top:0.85rem;">
+            <button type="button" id="decode-codes-btn" class="btn btn-primary">
+              Proses &amp; Gabungkan Kode
+            </button>
+            <button type="button" id="load-current-judge-btn" class="btn">
+              Muat Nilai Juri Saat Ini
+            </button>
+            <button type="button" id="clear-recap-btn" class="btn btn-subtle">
+              Bersihkan Rekap
+            </button>
+          </div>
+
+          <div id="recap-processing-status" class="field-hint" aria-live="polite" style="margin-top:0.65rem;"></div>
+          <div id="recap-errors-container" style="margin-top:0.75rem;"></div>
+        </div>
+
+        <div class="sheet recap-box">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+            <h3 class="section-heading" style="font-size:1.15rem;">Juri Terverifikasi</h3>
+            <span id="verified-judges-count" class="tag tag-neutral tabular">0 juri</span>
+          </div>
+          <p class="field-hint" style="margin-top:0.2rem;">
+            Hanya kode dengan checksum cocok yang masuk ke perhitungan rata-rata.
+          </p>
+          <div id="verified-judges-list" class="judge-chip-list"></div>
+        </div>
+      </div>
+
+      <div id="recap-results-toolbar" class="recap-toolbar no-print" hidden>
+        <div class="filter-group" role="group" aria-label="Filter kategori rekap">
+          <button type="button" class="filter-btn" data-recap-cat="all" aria-pressed="true">Semua Kategori</button>
+          <button type="button" class="filter-btn" data-recap-cat="costume" aria-pressed="false">Best Costume</button>
+          <button type="button" class="filter-btn" data-recap-cat="king" aria-pressed="false">King</button>
+          <button type="button" class="filter-btn" data-recap-cat="queen" aria-pressed="false">Queen</button>
+        </div>
+
+        <div style="display:flex; flex-wrap:wrap; gap:0.55rem;">
+          <button type="button" id="export-csv-btn" class="btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 2V10.5M4.5 7.5L8 11L11.5 7.5M2.5 13.5H13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+            </svg>
+            <span>Export CSV</span>
+          </button>
+          <button type="button" id="print-recap-btn" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M4 6V2H12V6M4 11H2V6H14V11H12M4 9H12V14H4V9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="miter"/>
+            </svg>
+            <span>Cetak / Print Rekap</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="recap-results-container"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer no-print">
+    <div class="shell footer-inner">
+      <div>Data tersimpan lokal di browser ini. Tidak memerlukan server atau koneksi internet saat menilai.</div>
+      <div style="display:flex; flex-wrap:wrap; gap:0.55rem;">
+        <button type="button" id="reset-scores-btn" class="btn btn-sm btn-subtle">Reset Nilai Saja</button>
+        <button type="button" id="reset-all-btn" class="btn btn-sm btn-danger">Reset Semua Data</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile bottom action bar for one-thumb code generation on phones -->
+  <div id="mobile-action-bar" class="mobile-action-bar no-print">
+    <div style="min-width:0;">
+      <div id="mobile-progress-label" class="tabular" style="font-size:0.84rem; font-weight:700;">0/30 dinilai</div>
+      <div id="mobile-judge-label" style="font-size:0.78rem; color:var(--ink-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Juri belum diisi</div>
+    </div>
+    <button type="button" id="mobile-generate-btn" class="btn btn-primary">
+      Generate Kode
+    </button>
+  </div>
+
+  <div id="live-announcer" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+  <div id="toast-region" class="toast-region no-print" aria-live="polite"></div>
+
+  <!-- Dialog: Generated Score Code -->
+  <dialog id="dialog-code" class="app-dialog" aria-labelledby="dialog-code-title">
+    <div class="dialog-shell">
+      <div class="dialog-header">
+        <h3 id="dialog-code-title" class="dialog-title">Kode Kombinasi Penilaian</h3>
+        <button type="button" class="btn btn-sm" data-close-dialog="dialog-code" aria-label="Tutup dialog kode penilaian">
+          Tutup
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div id="code-warning-box" class="alert-box alert-warn" hidden></div>
+
+        <div>
+          <h4 style="font-size:0.9rem; font-weight:700; margin:0 0 0.55rem;">Ringkasan Sebelum Disalin</h4>
+          <div id="code-summary-grid" class="summary-grid"></div>
+        </div>
+
+        <details id="code-detail-preview" style="border:1px solid var(--border-subtle); border-radius:6px; padding:0.65rem 0.85rem; background:var(--bg-recess);">
+          <summary style="font-weight:600; font-size:0.88rem;">Lihat daftar rincian nilai &amp; komentar dalam kode</summary>
+          <div id="code-detail-list" style="margin-top:0.7rem; font-size:0.85rem;"></div>
+        </details>
+
+        <div>
+          <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.4rem; margin-bottom:0.35rem;">
+            <label for="generated-code-output" class="field-label" style="margin:0;">Kode Kombinasi (SCOREV1 + Checksum CRC-32)</label>
+            <span id="generated-code-meta" class="tag tag-neutral tabular"></span>
+          </div>
+          <textarea id="generated-code-output" class="code-output" readonly rows="5"></textarea>
+          <p class="field-hint">
+            Kirim seluruh teks kode di atas tanpa terpotong ke panitia untuk direkap. Karakter khusus dan emoji pada komentar sudah diamankan dalam UTF-8. Foto peserta tetap tersimpan lokal di browser agar kode tetap ringkas.
+          </p>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" id="send-to-recap-btn" class="btn">
+          Uji di Halaman Rekap
+        </button>
+        <button type="button" id="copy-code-btn" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <rect x="5.5" y="5.5" width="8.5" height="8.5" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M10.5 5.5V2.5H2V11H5.5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span id="copy-code-label">Salin Kode</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Dialog: Participant Manager -->
+  <dialog id="dialog-participants" class="app-dialog" aria-labelledby="dialog-participants-title">
+    <div class="dialog-shell">
+      <div class="dialog-header">
+        <h3 id="dialog-participants-title" class="dialog-title">Kelola Daftar Peserta</h3>
+        <button type="button" class="btn btn-sm" data-close-dialog="dialog-participants" aria-label="Tutup dialog kelola peserta">
+          Tutup
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div>
+          <label for="manage-cat-select" class="field-label">Kategori yang Diatur</label>
+          <select id="manage-cat-select" class="input-select">
+            <option value="costume">Best Costume</option>
+            <option value="king">King</option>
+            <option value="queen">Queen</option>
+          </select>
+        </div>
+
+        <div style="padding:0.85rem; border-radius:8px; border:1px solid var(--border-subtle); background:var(--bg-recess);">
+          <div style="font-weight:700; font-size:0.88rem; margin-bottom:0.55rem;">Preset Cepat &amp; Import Daftar</div>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem; align-items:flex-end;">
+            <div style="width:6.5rem;">
+              <label for="preset-count-input" class="field-label" style="font-size:0.8rem;">Jumlah</label>
+              <input type="number" id="preset-count-input" class="input-text tabular" min="1" max="100" value="10">
+            </div>
+            <button type="button" id="apply-preset-cat-btn" class="btn btn-sm">
+              Buat 01 s.d. N (Kategori Ini)
+            </button>
+            <button type="button" id="apply-preset-all-btn" class="btn btn-sm">
+              Terapkan ke Semua 3 Kategori
+            </button>
+          </div>
+
+          <div style="margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border-subtle); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:0.5rem;">
+            <div>
+              <div style="font-weight:700; font-size:0.85rem;">Upload Foto Massal (Kategori Ini)</div>
+              <p class="field-hint" style="margin:0.1rem 0 0;">Pilih beberapa foto sekaligus. Nama file bernomor (misal <code>01.jpg</code>) otomatis dicocokkan ke nomor peserta.</p>
+            </div>
+            <button type="button" id="manage-bulk-photo-btn" class="btn btn-sm">
+              Pilih Banyak Foto
+            </button>
+          </div>
+
+          <details style="margin-top:0.75rem;">
+            <summary style="font-size:0.84rem; font-weight:600; color:var(--accent-text);">Tempel daftar nama sekaligus (satu nama per baris)</summary>
+            <div style="margin-top:0.55rem; display:flex; flex-direction:column; gap:0.5rem;">
+              <label for="bulk-names-input" class="field-label" style="margin:0;">Daftar Nama Peserta</label>
+              <textarea id="bulk-names-input" class="input-textarea" rows="4" placeholder="Tulis atau tempel satu nama peserta per baris. Nomor 01, 02, dst. dibuat otomatis."></textarea>
+              <div>
+                <button type="button" id="apply-bulk-names-btn" class="btn btn-sm btn-primary">Ganti Daftar Kategori Ini</button>
+              </div>
+            </div>
+          </details>
+
+          <details style="margin-top:0.65rem;">
+            <summary style="font-size:0.84rem; font-weight:600; color:var(--accent-text);">Bagikan atau muat paket peserta &amp; foto antar perangkat (.json)</summary>
+            <div style="margin-top:0.55rem; display:flex; flex-direction:column; gap:0.55rem;">
+              <p class="field-hint" style="margin:0;">
+                Panitia dapat mengekspor daftar peserta beserta foto terkompresi (tanpa nilai juri) ke satu file JSON, lalu mengirimkannya ke juri lain untuk diimpor secara offline.
+              </p>
+              <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+                <button type="button" id="export-package-btn" class="btn btn-sm">Ekspor Paket Peserta &amp; Foto</button>
+                <button type="button" id="import-package-btn" class="btn btn-sm btn-primary">Impor Paket (.json)</button>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div id="manage-photo-status" class="photo-processing-bar" role="status" aria-live="polite" style="margin:0;" hidden></div>
+
+        <form id="add-participant-form" novalidate class="add-participant-grid">
+          <div>
+            <label for="new-participant-id" class="field-label">Nomor</label>
+            <input type="text" id="new-participant-id" class="input-text font-mono-code" placeholder="11" maxlength="10">
+          </div>
+          <div>
+            <label for="new-participant-name" class="field-label">Nama Peserta</label>
+            <input type="text" id="new-participant-name" class="input-text" placeholder="Contoh: Peserta 11" maxlength="80">
+          </div>
+          <button type="submit" class="btn btn-primary">Tambah</button>
+        </form>
+        <div id="manage-error-msg" class="field-error" role="alert" hidden></div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+            <span class="field-label" style="margin:0;">Daftar Peserta Aktif</span>
+            <span id="manage-count-label" class="tag tag-neutral tabular">0 peserta</span>
+          </div>
+          <div id="manage-participants-list" style="display:flex; flex-direction:column; gap:0.55rem;"></div>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" class="btn btn-primary" data-close-dialog="dialog-participants">Selesai</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Dialog: Photo Lightbox & Quick Scoring -->
+  <dialog id="dialog-photo" class="app-dialog app-dialog-photo" aria-labelledby="dialog-photo-title">
+    <div class="dialog-shell">
+      <div class="dialog-header">
+        <div style="display:flex; align-items:center; gap:0.6rem; min-width:0;">
+          <span id="lightbox-stamp" class="ballot-stamp">01</span>
+          <div style="min-width:0;">
+            <h3 id="dialog-photo-title" class="dialog-title" style="font-size:1.1rem; line-height:1.25;">Peserta 01</h3>
+            <div id="lightbox-subtitle" class="field-hint tabular" style="margin:0;">Best Costume | 1 dari 10</div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-sm" data-close-dialog="dialog-photo" aria-label="Tutup pratinjau foto">
+          Tutup
+        </button>
+      </div>
+      <div class="dialog-body">
+        <div class="lightbox-stage">
+          <img id="lightbox-img" class="lightbox-img" src="" alt="" width="720" height="900">
+          <div id="lightbox-empty-stage" style="text-align:center; padding:1.5rem; color:#F3EFE8;" hidden>
+            <p style="margin:0 0 0.75rem; font-size:0.95rem;">Belum ada foto untuk peserta ini.</p>
+            <button type="button" id="lightbox-empty-upload-btn" class="btn btn-primary">Unggah Foto Peserta</button>
+          </div>
+        </div>
+
+        <div id="lightbox-score-bar" class="lightbox-score-bar" hidden>
+          <div>
+            <label for="lightbox-score-input" id="lightbox-score-label" class="field-label">Nilai (0 sampai 100)</label>
+            <div class="score-box">
+              <input type="text" inputmode="decimal" id="lightbox-score-input" class="score-input" placeholder="0-100" autocomplete="off">
+              <span class="score-unit tabular">/ 100</span>
+            </div>
+            <p id="lightbox-score-error" class="field-error" role="alert" hidden></p>
+          </div>
+
+          <div id="lightbox-comment-wrap" hidden>
+            <label for="lightbox-comment-input" class="field-label">Komentar Juri</label>
+            <textarea id="lightbox-comment-input" class="input-textarea" rows="2" maxlength="600" placeholder="Catatan penilaian untuk peserta ini"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <div class="lightbox-footer-inner">
+          <div class="lightbox-nav-group">
+            <button type="button" id="lightbox-prev-btn" class="btn btn-sm">Sebelumnya</button>
+            <button type="button" id="lightbox-next-btn" class="btn btn-sm">Berikutnya</button>
+          </div>
+          <div id="lightbox-manage-group" class="lightbox-nav-group">
+            <button type="button" id="lightbox-replace-btn" class="btn btn-sm">Ganti Foto</button>
+            <button type="button" id="lightbox-delete-btn" class="btn btn-sm btn-danger">Hapus Foto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <input type="file" id="single-photo-input" accept="image/*" class="sr-only" aria-label="Pilih file foto peserta">
+  <input type="file" id="bulk-photo-input" accept="image/*" multiple class="sr-only" aria-label="Pilih banyak file foto peserta">
+  <input type="file" id="import-package-input" accept="application/json,.json" class="sr-only" aria-label="Pilih file JSON paket peserta dan foto">
+
+  <!-- Dialog: Confirmation -->
+  <dialog id="dialog-confirm" class="app-dialog" aria-labelledby="dialog-confirm-title" style="width:min(460px, calc(100vw - 1.5rem));">
+    <div class="dialog-shell">
+      <div class="dialog-header">
+        <h3 id="dialog-confirm-title" class="dialog-title">Konfirmasi Tindakan</h3>
+        <button type="button" class="btn btn-sm" data-close-dialog="dialog-confirm" aria-label="Batalkan tindakan">Batal</button>
+      </div>
+      <div class="dialog-body">
+        <p id="dialog-confirm-message" style="margin:0; font-size:0.95rem;"></p>
+      </div>
+      <div class="dialog-footer">
+        <button type="button" class="btn" data-close-dialog="dialog-confirm">Batal</button>
+        <button type="button" id="dialog-confirm-ok" class="btn btn-danger">Ya, Lanjutkan</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const STORAGE_KEY = 'lembar_nilai_juri_state_v1';
+      const THEME_KEY = 'lembar_nilai_juri_theme_v1';
+      const CODE_PREFIX = 'SCOREV1';
+      const PHOTO_DB_NAME = 'lembar_nilai_juri_media_v1';
+      const PHOTO_STORE_NAME = 'photos';
+      const MAX_PHOTO_DIM = 960;
+      const PHOTO_JPEG_QUALITY = 0.78;
+      const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
+
+      const CATEGORIES = [
+        {
+          key: 'costume',
+          label: 'Best Costume',
+          hasComment: false,
+          ruleText: 'Masukkan nilai angka 0 sampai 100 (mendukung desimal seperti 87.5). Kategori ini tidak menggunakan kolom komentar.'
+        },
+        {
+          key: 'king',
+          label: 'King',
+          hasComment: true,
+          ruleText: 'Masukkan nilai angka 0 sampai 100 (mendukung desimal) beserta komentar juri untuk peserta kategori King.'
+        },
+        {
+          key: 'queen',
+          label: 'Queen',
+          hasComment: true,
+          ruleText: 'Masukkan nilai angka 0 sampai 100 (mendukung desimal) beserta komentar juri untuk peserta kategori Queen.'
+        }
+      ];
+
+      const CATEGORY_MAP = Object.fromEntries(CATEGORIES.map((c) => [c.key, c]));
+
+      function padTwo(n) {
+        return String(n).padStart(2, '0');
+      }
+
+      function createPresetParticipants(count) {
+        const list = [];
+        for (let i = 1; i <= count; i++) {
+          const code = padTwo(i);
+          list.push({
+            uid: `p_${code}_${Math.random().toString(36).slice(2, 7)}`,
+            id: code,
+            name: `Peserta ${code}`,
+            scoreRaw: '',
+            comment: ''
+          });
+        }
+        return list;
+      }
+
+      function createInitialState() {
+        return {
+          judgeName: '',
+          activeCategory: 'costume',
+          activeView: 'scoring',
+          filterMode: 'all',
+          recapFilterCat: 'all',
+          lastSavedAt: null,
+          categories: {
+            costume: createPresetParticipants(10),
+            king: createPresetParticipants(10),
+            queen: createPresetParticipants(10)
+          },
+          recapEntries: [],
+          recapRawInput: ''
+        };
+      }
+
+      let storageAvailable = true;
+      let photoDbAvailable = true;
+      let photoDbPromise = null;
+      const photoCache = new Map();
+      let pendingSinglePhotoTarget = null;
+      let pendingBulkPhotoCat = null;
+      let lightboxContext = null;
+      let state = loadState();
+      let lastFocusedBeforeDialog = null;
+      let confirmCallback = null;
+      let toastTimer = null;
+
+      // Store compressed photos in IndexedDB so localStorage never hits its 5 MB quota.
+      function openPhotoDb() {
+        if (photoDbPromise) return photoDbPromise;
+        photoDbPromise = new Promise((resolve) => {
+          if (typeof indexedDB === 'undefined') {
+            photoDbAvailable = false;
+            resolve(null);
+            return;
+          }
+          try {
+            const req = indexedDB.open(PHOTO_DB_NAME, 1);
+            req.onupgradeneeded = () => {
+              const db = req.result;
+              if (!db.objectStoreNames.contains(PHOTO_STORE_NAME)) {
+                db.createObjectStore(PHOTO_STORE_NAME, { keyPath: 'uid' });
+              }
+            };
+            req.onsuccess = () => resolve(req.result);
+            req.onerror = () => {
+              photoDbAvailable = false;
+              resolve(null);
+            };
+          } catch (err) {
+            photoDbAvailable = false;
+            resolve(null);
+          }
+        });
+        return photoDbPromise;
+      }
+
+      async function hydratePhotos() {
+        const db = await openPhotoDb();
+        if (!db) return;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(PHOTO_STORE_NAME, 'readonly');
+            const store = tx.objectStore(PHOTO_STORE_NAME);
+            const req = store.getAll();
+            req.onsuccess = () => {
+              const rows = Array.isArray(req.result) ? req.result : [];
+              rows.forEach((rec) => {
+                if (rec && rec.uid && typeof rec.dataUrl === 'string') {
+                  photoCache.set(rec.uid, {
+                    dataUrl: rec.dataUrl,
+                    width: rec.width || 720,
+                    height: rec.height || 900
+                  });
+                }
+              });
+              resolve();
+            };
+            req.onerror = () => resolve();
+          } catch (err) {
+            resolve();
+          }
+        });
+      }
+
+      async function persistPhoto(uid, record) {
+        photoCache.set(uid, record);
+        const db = await openPhotoDb();
+        if (!db) return;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(PHOTO_STORE_NAME, 'readwrite');
+            tx.objectStore(PHOTO_STORE_NAME).put({ uid, ...record });
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => resolve();
+          } catch (err) {
+            resolve();
+          }
+        });
+      }
+
+      async function removePhoto(uid) {
+        photoCache.delete(uid);
+        const db = await openPhotoDb();
+        if (!db) return;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(PHOTO_STORE_NAME, 'readwrite');
+            tx.objectStore(PHOTO_STORE_NAME).delete(uid);
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => resolve();
+          } catch (err) {
+            resolve();
+          }
+        });
+      }
+
+      async function clearAllPhotos() {
+        photoCache.clear();
+        const db = await openPhotoDb();
+        if (!db) return;
+        return new Promise((resolve) => {
+          try {
+            const tx = db.transaction(PHOTO_STORE_NAME, 'readwrite');
+            tx.objectStore(PHOTO_STORE_NAME).clear();
+            tx.oncomplete = () => resolve();
+            tx.onerror = () => resolve();
+          } catch (err) {
+            resolve();
+          }
+        });
+      }
+
+      async function pruneOrphanedPhotos() {
+        const activeUids = new Set();
+        for (const cat of CATEGORIES) {
+          for (const item of state.categories[cat.key]) {
+            activeUids.add(item.uid);
+          }
+        }
+        const stale = [];
+        for (const uid of photoCache.keys()) {
+          if (!activeUids.has(uid)) stale.push(uid);
+        }
+        for (const uid of stale) {
+          await removePhoto(uid);
+        }
+      }
+
+      function getPhotoForRecapRow(catKey, participantId) {
+        const list = state.categories[catKey] || [];
+        const normId = String(participantId || '').trim().toUpperCase();
+        if (!normId) return null;
+        const match = list.find((p) => p.id.trim().toUpperCase() === normId && photoCache.has(p.uid));
+        return match ? photoCache.get(match.uid) : null;
+      }
+
+      // Compress uploaded photos on an offscreen canvas to max 960px JPEG so bulk uploads stay fast and lightweight.
+      function compressImageFile(file) {
+        return new Promise((resolve, reject) => {
+          if (!file) {
+            reject(new Error('File foto tidak ditemukan.'));
+            return;
+          }
+          const isImageMime = typeof file.type === 'string' && file.type.startsWith('image/');
+          const isImageExt = /\.(jpe?g|png|webp|gif|bmp|avif)$/i.test(file.name || '');
+          if (!isImageMime && !isImageExt) {
+            reject(new Error(`File "${file.name}" bukan gambar. Pilih file JPG, PNG, atau WebP.`));
+            return;
+          }
+          if (file.size > MAX_UPLOAD_BYTES) {
+            reject(new Error(`Ukuran "${file.name}" melebihi 25 MB.`));
+            return;
+          }
+
+          const reader = new FileReader();
+          reader.onerror = () => reject(new Error(`Gagal membaca file "${file.name}".`));
+          reader.onload = () => {
+            const img = new Image();
+            img.onerror = () => reject(new Error(`Gambar "${file.name}" rusak atau format tidak didukung browser.`));
+            img.onload = () => {
+              const srcW = img.naturalWidth || img.width;
+              const srcH = img.naturalHeight || img.height;
+              if (!srcW || !srcH) {
+                reject(new Error(`Dimensi gambar "${file.name}" tidak valid.`));
+                return;
+              }
+              const scale = Math.min(1, MAX_PHOTO_DIM / Math.max(srcW, srcH));
+              const dstW = Math.max(1, Math.round(srcW * scale));
+              const dstH = Math.max(1, Math.round(srcH * scale));
+              const canvas = document.createElement('canvas');
+              canvas.width = dstW;
+              canvas.height = dstH;
+              const ctx = canvas.getContext('2d');
+              if (!ctx) {
+                reject(new Error('Canvas browser tidak tersedia untuk mengompres foto.'));
+                return;
+              }
+              ctx.fillStyle = '#FFFFFF';
+              ctx.fillRect(0, 0, dstW, dstH);
+              ctx.drawImage(img, 0, 0, dstW, dstH);
+              try {
+                const dataUrl = canvas.toDataURL('image/jpeg', PHOTO_JPEG_QUALITY);
+                resolve({ dataUrl, width: dstW, height: dstH });
+              } catch (err) {
+                reject(new Error(`Gagal mengompres gambar "${file.name}".`));
+              }
+            };
+            img.src = reader.result;
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return createInitialState();
+          const parsed = JSON.parse(raw);
+          const base = createInitialState();
+          const merged = {
+            ...base,
+            judgeName: typeof parsed.judgeName === 'string' ? parsed.judgeName : '',
+            activeCategory: CATEGORY_MAP[parsed.activeCategory] ? parsed.activeCategory : 'costume',
+            activeView: parsed.activeView === 'recap' ? 'recap' : 'scoring',
+            filterMode: ['all', 'scored', 'unscored'].includes(parsed.filterMode) ? parsed.filterMode : 'all',
+            recapFilterCat: ['all', 'costume', 'king', 'queen'].includes(parsed.recapFilterCat) ? parsed.recapFilterCat : 'all',
+            lastSavedAt: parsed.lastSavedAt || null,
+            recapRawInput: typeof parsed.recapRawInput === 'string' ? parsed.recapRawInput : '',
+            recapEntries: Array.isArray(parsed.recapEntries) ? parsed.recapEntries : [],
+            categories: {}
+          };
+
+          for (const cat of CATEGORIES) {
+            const items = parsed.categories && Array.isArray(parsed.categories[cat.key])
+              ? parsed.categories[cat.key]
+              : base.categories[cat.key];
+            merged.categories[cat.key] = items.map((item, idx) => ({
+              uid: typeof item.uid === 'string' ? item.uid : `p_${cat.key}_${idx}_${Date.now()}`,
+              id: typeof item.id === 'string' ? item.id : padTwo(idx + 1),
+              name: typeof item.name === 'string' ? item.name : `Peserta ${padTwo(idx + 1)}`,
+              scoreRaw: typeof item.scoreRaw === 'string' ? item.scoreRaw : (typeof item.scoreRaw === 'number' ? String(item.scoreRaw) : ''),
+              comment: cat.hasComment && typeof item.comment === 'string' ? item.comment : ''
+            }));
+          }
+          return merged;
+        } catch (err) {
+          storageAvailable = false;
+          return createInitialState();
+        }
+      }
+
+      function saveState() {
+        state.lastSavedAt = new Date().toISOString();
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          storageAvailable = true;
+        } catch (err) {
+          storageAvailable = false;
+        }
+        updateAutosaveIndicator();
+      }
+
+      // Score parser accepting both dot and Indonesian comma decimals, strictly clamped to [0, 100].
+      function parseScore(raw) {
+        const trimmed = String(raw == null ? '' : raw).trim();
+        if (trimmed === '') {
+          return { empty: true, valid: true, value: null, error: '' };
+        }
+        const normalized = trimmed.replace(',', '.');
+        if (!/^-?\d+(\.\d+)?$/.test(normalized)) {
+          return {
+            empty: false,
+            valid: false,
+            value: null,
+            error: 'Masukkan angka valid antara 0 sampai 100 (contoh: 87.5).'
+          };
+        }
+        const num = Number(normalized);
+        if (!Number.isFinite(num)) {
+          return {
+            empty: false,
+            valid: false,
+            value: null,
+            error: 'Angka tidak valid.'
+          };
+        }
+        if (num < 0 || num > 100) {
+          return {
+            empty: false,
+            valid: false,
+            value: null,
+            error: 'Nilai harus berada di rentang 0 sampai 100.'
+          };
+        }
+        const rounded = Math.round(num * 100) / 100;
+        return { empty: false, valid: true, value: rounded, error: '' };
+      }
+
+      function formatScore(num) {
+        if (num === null || num === undefined || Number.isNaN(num)) return '-';
+        const rounded = Math.round(num * 100) / 100;
+        return Number.isInteger(rounded) ? String(rounded) : rounded.toFixed(2).replace(/0$/, '');
+      }
+
+      function formatAverage(num) {
+        if (num === null || num === undefined || Number.isNaN(num)) return '-';
+        return num.toFixed(2);
+      }
+
+      function formatTimeLocal(isoStr) {
+        if (!isoStr) return '';
+        const d = new Date(isoStr);
+        if (Number.isNaN(d.getTime())) return '';
+        return d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+      }
+
+      function formatDateTimeLocal(isoStr) {
+        if (!isoStr) return '';
+        const d = new Date(isoStr);
+        if (Number.isNaN(d.getTime())) return '';
+        return d.toLocaleString('id-ID', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+      }
+
+      // IEEE 802.3 CRC-32 checksum over UTF-8 payload bytes to catch truncation or tampering.
+      const CRC32_TABLE = (() => {
+        const table = new Uint32Array(256);
+        for (let i = 0; i < 256; i++) {
+          let c = i;
+          for (let j = 0; j < 8; j++) {
+            c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+          }
+          table[i] = c >>> 0;
+        }
+        return table;
+      })();
+
+      function crc32Hex(bytes) {
+        let crc = 0xFFFFFFFF;
+        for (let i = 0; i < bytes.length; i++) {
+          crc = CRC32_TABLE[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+        }
+        return ((crc ^ 0xFFFFFFFF) >>> 0).toString(16).toUpperCase().padStart(8, '0');
+      }
+
+      // Chunked UTF-8 byte encoding avoids btoa Latin1 failures on emojis and non-ASCII comments.
+      function utf8BytesToBase64Url(bytes) {
+        let binary = '';
+        const chunk = 0x8000;
+        for (let i = 0; i < bytes.length; i += chunk) {
+          binary += String.fromCharCode(...bytes.subarray(i, i + chunk));
+        }
+        return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      }
+
+      function base64ToUtf8Bytes(b64Input) {
+        const b64 = b64Input.replace(/-/g, '+').replace(/_/g, '/');
+        const remainder = b64.length % 4;
+        if (remainder === 1) {
+          throw new Error('Panjang data Base64 tidak valid (kemungkinan kode terpotong).');
+        }
+        const padded = remainder === 0 ? b64 : b64 + '='.repeat(4 - remainder);
+        const binary = atob(padded);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+        return bytes;
+      }
+
+      function buildPayloadFromState() {
+        const judge = state.judgeName.trim();
+        const categoriesPayload = {
+          costume: [],
+          king: [],
+          queen: []
+        };
+
+        for (const cat of CATEGORIES) {
+          for (const item of state.categories[cat.key]) {
+            const parsed = parseScore(item.scoreRaw);
+            const comment = cat.hasComment ? item.comment.trim() : '';
+            if (parsed.empty && !comment) continue;
+            const entry = {
+              id: item.id.trim(),
+              n: item.name.trim() || `Peserta ${item.id.trim()}`,
+              s: parsed.empty ? null : parsed.value
+            };
+            if (cat.hasComment && comment) {
+              entry.m = comment;
+            }
+            categoriesPayload[cat.key].push(entry);
+          }
+        }
+
+        return {
+          v: 1,
+          j: judge,
+          ts: new Date().toISOString(),
+          c: categoriesPayload
+        };
+      }
+
+      function encodeScorePayload(payload) {
+        const json = JSON.stringify(payload);
+        const bytes = new TextEncoder().encode(json);
+        const checksum = crc32Hex(bytes);
+        const b64 = utf8BytesToBase64Url(bytes);
+        return `${CODE_PREFIX}:${checksum}:${b64}`;
+      }
+
+      function decodeScoreCode(rawCode) {
+        const cleaned = String(rawCode || '').trim().replace(/\s+/g, '');
+        if (!cleaned) {
+          return { ok: false, error: 'Kode kosong.' };
+        }
+
+        const parts = cleaned.split(':');
+        if (parts.length !== 3 || parts[0] !== CODE_PREFIX) {
+          return {
+            ok: false,
+            error: `Format awalan tidak sesuai. Kode harus berbentuk ${CODE_PREFIX}:<CHECKSUM>:<DATA>.`
+          };
+        }
+
+        const [, expectedChecksum, encodedPart] = parts;
+        if (!/^[0-9A-F]{8}$/i.test(expectedChecksum)) {
+          return {
+            ok: false,
+            error: 'Format checksum tidak valid (harus 8 karakter heksadesimal).'
+          };
+        }
+
+        if (!/^[A-Za-z0-9\-_+/=]+$/.test(encodedPart)) {
+          return {
+            ok: false,
+            error: 'Data kode mengandung karakter tidak sah.'
+          };
+        }
+
+        let bytes;
+        try {
+          bytes = base64ToUtf8Bytes(encodedPart);
+        } catch (err) {
+          return {
+            ok: false,
+            error: 'Gagal mendekode Base64. Pastikan kode disalin utuh tanpa terpotong.'
+          };
+        }
+
+        // Reject non-canonical trailing Base64 bits so even a 1-char edit at the end is detected.
+        const normalizedInputB64 = encodedPart.replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+        if (utf8BytesToBase64Url(bytes) !== normalizedInputB64) {
+          return {
+            ok: false,
+            error: 'Karakter Base64 tidak kanonis. Kode terpotong atau berubah di bagian akhir.'
+          };
+        }
+
+        const actualChecksum = crc32Hex(bytes);
+        if (actualChecksum !== expectedChecksum.toUpperCase()) {
+          return {
+            ok: false,
+            error: `Checksum tidak cocok (diharapkan ${expectedChecksum.toUpperCase()}, terbaca ${actualChecksum}). Kode terpotong atau berubah.`
+          };
+        }
+
+        let jsonStr;
+        try {
+          jsonStr = new TextDecoder('utf-8', { fatal: true }).decode(bytes);
+        } catch (err) {
+          return {
+            ok: false,
+            error: 'Isi UTF-8 kode rusak dan tidak dapat dibaca.'
+          };
+        }
+
+        let data;
+        try {
+          data = JSON.parse(jsonStr);
+        } catch (err) {
+          return {
+            ok: false,
+            error: 'Struktur JSON di dalam kode rusak.'
+          };
+        }
+
+        if (!data || data.v !== 1 || typeof data.j !== 'string' || !data.j.trim() || !data.c || typeof data.c !== 'object') {
+          return {
+            ok: false,
+            error: 'Struktur data penilaian tidak dikenali atau identitas juri kosong.'
+          };
+        }
+
+        const sanitized = {
+          v: 1,
+          j: data.j.trim(),
+          ts: typeof data.ts === 'string' ? data.ts : '',
+          c: { costume: [], king: [], queen: [] }
+        };
+
+        for (const cat of CATEGORIES) {
+          const list = Array.isArray(data.c[cat.key]) ? data.c[cat.key] : [];
+          for (const row of list) {
+            if (!row || typeof row !== 'object') continue;
+            const id = typeof row.id === 'string' ? row.id.trim() : '';
+            const n = typeof row.n === 'string' ? row.n.trim() : '';
+            if (!id && !n) continue;
+            let score = null;
+            if (row.s !== null && row.s !== undefined && row.s !== '') {
+              const num = Number(row.s);
+              if (!Number.isFinite(num) || num < 0 || num > 100) {
+                return {
+                  ok: false,
+                  error: `Nilai di luar rentang 0 sampai 100 ditemukan pada kategori ${cat.label} (${n || id}).`
+                };
+              }
+              score = Math.round(num * 100) / 100;
+            }
+            const cleanRow = { id, n: n || `Peserta ${id}`, s: score };
+            if (cat.hasComment && typeof row.m === 'string' && row.m.trim()) {
+              cleanRow.m = row.m.trim();
+            }
+            sanitized.c[cat.key].push(cleanRow);
+          }
+        }
+
+        return { ok: true, code: cleaned, checksum: actualChecksum, data: sanitized };
+      }
+
+      // Extract SCOREV1 tokens from raw pasted lines, preserving non-matching lines as errors.
+      function extractCodeCandidates(rawText) {
+        const lines = String(rawText || '').split(/\r?\n/);
+        const candidates = [];
+
+        lines.forEach((line, index) => {
+          const trimmed = line.trim();
+          if (!trimmed) return;
+
+          const regex = /SCOREV1:[A-Za-z0-9\-_+/=:]+/g;
+          const matches = trimmed.match(regex);
+          if (matches && matches.length > 0) {
+            matches.forEach((token) => {
+              candidates.push({ lineNumber: index + 1, raw: token });
+            });
+          } else {
+            candidates.push({ lineNumber: index + 1, raw: trimmed });
+          }
+        });
+
+        return candidates;
+      }
+
+      function computeRecapAggregation(entries) {
+        const result = {
+          costume: [],
+          king: [],
+          queen: []
+        };
+
+        for (const cat of CATEGORIES) {
+          const map = new Map();
+
+          entries.forEach((entry) => {
+            const judgeName = entry.data.j;
+            const rows = entry.data.c[cat.key] || [];
+
+            rows.forEach((row) => {
+              const normId = (row.id || '').trim().toUpperCase();
+              const normName = (row.n || '').trim().toLowerCase();
+              const key = normId ? `id:${normId}` : `name:${normName}`;
+
+              if (!map.has(key)) {
+                map.set(key, {
+                  key,
+                  id: row.id || '',
+                  name: row.n || `Peserta ${row.id}`,
+                  scores: [],
+                  comments: []
+                });
+              }
+
+              const bucket = map.get(key);
+              const genericPattern = /^peserta\s+\d+$/i;
+              if (genericPattern.test(bucket.name) && row.n && !genericPattern.test(row.n)) {
+                bucket.name = row.n;
+              }
+              if (!bucket.id && row.id) {
+                bucket.id = row.id;
+              }
+
+              if (row.s !== null && row.s !== undefined) {
+                bucket.scores.push({ judge: judgeName, score: row.s });
+              }
+              if (cat.hasComment && row.m) {
+                bucket.comments.push({ judge: judgeName, text: row.m });
+              }
+            });
+          });
+
+          const list = Array.from(map.values()).map((item) => {
+            const count = item.scores.length;
+            const sum = item.scores.reduce((acc, s) => acc + s.score, 0);
+            const avg = count > 0 ? sum / count : null;
+            return {
+              ...item,
+              judgeCount: count,
+              average: avg
+            };
+          });
+
+          list.sort((a, b) => {
+            if (a.average === null && b.average === null) return a.id.localeCompare(b.id, 'id', { numeric: true });
+            if (a.average === null) return 1;
+            if (b.average === null) return -1;
+            const diff = Math.round(b.average * 10000) - Math.round(a.average * 10000);
+            if (diff !== 0) return diff;
+            if (b.judgeCount !== a.judgeCount) return b.judgeCount - a.judgeCount;
+            return a.id.localeCompare(b.id, 'id', { numeric: true });
+          });
+
+          // Standard competition ranking (1, 1, 3) for tied averages.
+          let currentRank = 0;
+          let prevAvgKey = null;
+          list.forEach((item, idx) => {
+            if (item.average === null) {
+              item.rank = null;
+              return;
+            }
+            const avgKey = item.average.toFixed(4);
+            if (avgKey !== prevAvgKey) {
+              currentRank = idx + 1;
+              prevAvgKey = avgKey;
+            }
+            item.rank = currentRank;
+          });
+
+          result[cat.key] = list;
+        }
+
+        return result;
+      }
+
+      const els = {
+        storageWarning: document.getElementById('storage-warning'),
+        navScoring: document.getElementById('nav-scoring'),
+        navRecap: document.getElementById('nav-recap'),
+        themeToggle: document.getElementById('theme-toggle'),
+        themeLabel: document.getElementById('theme-label'),
+        themeIconMoon: document.getElementById('theme-icon-moon'),
+        themeIconSun: document.getElementById('theme-icon-sun'),
+        viewScoring: document.getElementById('view-scoring'),
+        viewRecap: document.getElementById('view-recap'),
+        judgeNameInput: document.getElementById('judge-name-input'),
+        autosaveDot: document.getElementById('autosave-dot'),
+        autosaveText: document.getElementById('autosave-text'),
+        overallProgressText: document.getElementById('overall-progress-text'),
+        openParticipantsBtn: document.getElementById('open-participants-btn'),
+        generateCodeBtn: document.getElementById('generate-code-btn'),
+        scoringErrorBanner: document.getElementById('scoring-error-banner'),
+        scoringErrorBannerText: document.getElementById('scoring-error-banner-text'),
+        categoryTablist: document.getElementById('category-tablist'),
+        panelScoring: document.getElementById('panel-scoring'),
+        activeCategoryTitle: document.getElementById('active-category-title'),
+        activeCategoryRule: document.getElementById('active-category-rule'),
+        categoryProgressLabel: document.getElementById('category-progress-label'),
+        categoryPhotoLabel: document.getElementById('category-photo-label'),
+        categoryProgressPct: document.getElementById('category-progress-pct'),
+        categoryProgressBar: document.getElementById('category-progress-bar'),
+        quickBulkPhotoBtn: document.getElementById('quick-bulk-photo-btn'),
+        quickAddParticipantBtn: document.getElementById('quick-add-participant-btn'),
+        photoProcessingBar: document.getElementById('photo-processing-bar'),
+        scoringListContainer: document.getElementById('scoring-list-container'),
+        mobileActionBar: document.getElementById('mobile-action-bar'),
+        mobileProgressLabel: document.getElementById('mobile-progress-label'),
+        mobileJudgeLabel: document.getElementById('mobile-judge-label'),
+        mobileGenerateBtn: document.getElementById('mobile-generate-btn'),
+        recapCodesInput: document.getElementById('recap-codes-input'),
+        decodeCodesBtn: document.getElementById('decode-codes-btn'),
+        loadCurrentJudgeBtn: document.getElementById('load-current-judge-btn'),
+        clearRecapBtn: document.getElementById('clear-recap-btn'),
+        recapProcessingStatus: document.getElementById('recap-processing-status'),
+        recapErrorsContainer: document.getElementById('recap-errors-container'),
+        verifiedJudgesCount: document.getElementById('verified-judges-count'),
+        verifiedJudgesList: document.getElementById('verified-judges-list'),
+        recapResultsToolbar: document.getElementById('recap-results-toolbar'),
+        recapResultsContainer: document.getElementById('recap-results-container'),
+        exportCsvBtn: document.getElementById('export-csv-btn'),
+        printRecapBtn: document.getElementById('print-recap-btn'),
+        printMeta: document.getElementById('print-meta'),
+        resetScoresBtn: document.getElementById('reset-scores-btn'),
+        resetAllBtn: document.getElementById('reset-all-btn'),
+        liveAnnouncer: document.getElementById('live-announcer'),
+        toastRegion: document.getElementById('toast-region'),
+        dialogCode: document.getElementById('dialog-code'),
+        codeWarningBox: document.getElementById('code-warning-box'),
+        codeSummaryGrid: document.getElementById('code-summary-grid'),
+        codeDetailList: document.getElementById('code-detail-list'),
+        generatedCodeOutput: document.getElementById('generated-code-output'),
+        generatedCodeMeta: document.getElementById('generated-code-meta'),
+        copyCodeBtn: document.getElementById('copy-code-btn'),
+        copyCodeLabel: document.getElementById('copy-code-label'),
+        sendToRecapBtn: document.getElementById('send-to-recap-btn'),
+        dialogParticipants: document.getElementById('dialog-participants'),
+        manageCatSelect: document.getElementById('manage-cat-select'),
+        presetCountInput: document.getElementById('preset-count-input'),
+        applyPresetCatBtn: document.getElementById('apply-preset-cat-btn'),
+        applyPresetAllBtn: document.getElementById('apply-preset-all-btn'),
+        bulkNamesInput: document.getElementById('bulk-names-input'),
+        applyBulkNamesBtn: document.getElementById('apply-bulk-names-btn'),
+        addParticipantForm: document.getElementById('add-participant-form'),
+        newParticipantId: document.getElementById('new-participant-id'),
+        newParticipantName: document.getElementById('new-participant-name'),
+        manageErrorMsg: document.getElementById('manage-error-msg'),
+        manageCountLabel: document.getElementById('manage-count-label'),
+        manageParticipantsList: document.getElementById('manage-participants-list'),
+        manageBulkPhotoBtn: document.getElementById('manage-bulk-photo-btn'),
+        managePhotoStatus: document.getElementById('manage-photo-status'),
+        exportPackageBtn: document.getElementById('export-package-btn'),
+        importPackageBtn: document.getElementById('import-package-btn'),
+        dialogPhoto: document.getElementById('dialog-photo'),
+        lightboxStamp: document.getElementById('lightbox-stamp'),
+        dialogPhotoTitle: document.getElementById('dialog-photo-title'),
+        lightboxSubtitle: document.getElementById('lightbox-subtitle'),
+        lightboxImg: document.getElementById('lightbox-img'),
+        lightboxEmptyStage: document.getElementById('lightbox-empty-stage'),
+        lightboxEmptyUploadBtn: document.getElementById('lightbox-empty-upload-btn'),
+        lightboxScoreBar: document.getElementById('lightbox-score-bar'),
+        lightboxScoreLabel: document.getElementById('lightbox-score-label'),
+        lightboxScoreInput: document.getElementById('lightbox-score-input'),
+        lightboxScoreError: document.getElementById('lightbox-score-error'),
+        lightboxCommentWrap: document.getElementById('lightbox-comment-wrap'),
+        lightboxCommentInput: document.getElementById('lightbox-comment-input'),
+        lightboxPrevBtn: document.getElementById('lightbox-prev-btn'),
+        lightboxNextBtn: document.getElementById('lightbox-next-btn'),
+        lightboxManageGroup: document.getElementById('lightbox-manage-group'),
+        lightboxReplaceBtn: document.getElementById('lightbox-replace-btn'),
+        lightboxDeleteBtn: document.getElementById('lightbox-delete-btn'),
+        singlePhotoInput: document.getElementById('single-photo-input'),
+        bulkPhotoInput: document.getElementById('bulk-photo-input'),
+        importPackageInput: document.getElementById('import-package-input'),
+        dialogConfirm: document.getElementById('dialog-confirm'),
+        dialogConfirmTitle: document.getElementById('dialog-confirm-title'),
+        dialogConfirmMessage: document.getElementById('dialog-confirm-message'),
+        dialogConfirmOk: document.getElementById('dialog-confirm-ok')
+      };
+
+      function announce(message) {
+        els.liveAnnouncer.textContent = '';
+        requestAnimationFrame(() => {
+          els.liveAnnouncer.textContent = message;
+        });
+      }
+
+      function showToast(message) {
+        els.toastRegion.innerHTML = '';
+        const card = document.createElement('div');
+        card.className = 'toast-card';
+        card.textContent = message;
+        els.toastRegion.appendChild(card);
+        announce(message);
+        if (toastTimer) clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          els.toastRegion.innerHTML = '';
+        }, 3200);
+      }
+
+      function applyTheme(theme) {
+        const isDark = theme === 'dark';
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        els.themeToggle.setAttribute('aria-pressed', String(isDark));
+        els.themeToggle.setAttribute(
+          'aria-label',
+          isDark ? 'Aktifkan mode terang seperti kertas gading' : 'Aktifkan mode gelap untuk ruang panggung redup'
+        );
+        els.themeLabel.textContent = isDark ? 'Mode Terang' : 'Mode Gelap';
+        els.themeIconMoon.hidden = isDark;
+        els.themeIconSun.hidden = !isDark;
+        try {
+          localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+        } catch (err) {
+          // Ignore storage errors when private mode blocks localStorage.
+        }
+      }
+
+      function initTheme() {
+        let saved = 'light';
+        try {
+          const val = localStorage.getItem(THEME_KEY);
+          if (val === 'dark' || val === 'light') saved = val;
+        } catch (err) {
+          saved = 'light';
+        }
+        applyTheme(saved);
+      }
+
+      function openDialog(dialogEl) {
+        lastFocusedBeforeDialog = document.activeElement;
+        if (typeof dialogEl.showModal === 'function') {
+          dialogEl.showModal();
+        } else {
+          dialogEl.setAttribute('open', '');
+        }
+      }
+
+      function closeDialog(dialogEl) {
+        if (typeof dialogEl.close === 'function' && dialogEl.open) {
+          dialogEl.close();
+        } else {
+          dialogEl.removeAttribute('open');
+        }
+        if (lastFocusedBeforeDialog && typeof lastFocusedBeforeDialog.focus === 'function') {
+          lastFocusedBeforeDialog.focus();
+          lastFocusedBeforeDialog = null;
+        }
+      }
+
+      function requestConfirm(title, message, okLabel, onConfirm) {
+        els.dialogConfirmTitle.textContent = title;
+        els.dialogConfirmMessage.textContent = message;
+        els.dialogConfirmOk.textContent = okLabel;
+        confirmCallback = onConfirm;
+        openDialog(els.dialogConfirm);
+      }
+
+      function getCategoryStats(catKey) {
+        const list = state.categories[catKey] || [];
+        let scored = 0;
+        let invalid = 0;
+        list.forEach((item) => {
+          const p = parseScore(item.scoreRaw);
+          if (!p.valid) invalid++;
+          else if (!p.empty) scored++;
+        });
+        return { total: list.length, scored, invalid };
+      }
+
+      function findAllValidationErrors() {
+        const errors = [];
+        for (const cat of CATEGORIES) {
+          for (const item of state.categories[cat.key]) {
+            const parsed = parseScore(item.scoreRaw);
+            if (!parsed.valid) {
+              errors.push({
+                category: cat.key,
+                categoryLabel: cat.label,
+                uid: item.uid,
+                id: item.id,
+                name: item.name,
+                error: parsed.error
+              });
+            }
+          }
+        }
+        return errors;
+      }
+
+      function updateAutosaveIndicator() {
+        els.storageWarning.hidden = storageAvailable;
+        if (!storageAvailable) {
+          els.autosaveDot.classList.add('status-dot-warn');
+          els.autosaveText.textContent = 'Mode sementara (tanpa localStorage)';
+          return;
+        }
+        els.autosaveDot.classList.remove('status-dot-warn');
+        const t = formatTimeLocal(state.lastSavedAt);
+        els.autosaveText.textContent = t ? `Tersimpan lokal ${t}` : 'Tersimpan di browser lokal';
+      }
+
+      function updateProgressCounters() {
+        let totalParticipants = 0;
+        let totalScored = 0;
+
+        for (const cat of CATEGORIES) {
+          const st = getCategoryStats(cat.key);
+          totalParticipants += st.total;
+          totalScored += st.scored;
+          const metaEl = document.getElementById(`tab-meta-${cat.key}`);
+          if (metaEl) {
+            if (st.invalid > 0) {
+              metaEl.textContent = `${st.scored}/${st.total} (${st.invalid} tidak valid)`;
+            } else if (st.total > 0 && st.scored === st.total) {
+              metaEl.textContent = `${st.scored}/${st.total} lengkap`;
+            } else {
+              metaEl.textContent = `${st.scored}/${st.total} dinilai`;
+            }
+          }
+        }
+
+        els.overallProgressText.textContent = `${totalScored}/${totalParticipants} peserta dinilai`;
+        els.mobileProgressLabel.textContent = `${totalScored}/${totalParticipants} dinilai`;
+        els.mobileJudgeLabel.textContent = state.judgeName.trim() ? `Juri: ${state.judgeName.trim()}` : 'Nama juri belum diisi';
+
+        const activeStats = getCategoryStats(state.activeCategory);
+        const activeList = state.categories[state.activeCategory] || [];
+        const photoCount = activeList.filter((item) => photoCache.has(item.uid)).length;
+        const pct = activeStats.total > 0 ? Math.round((activeStats.scored / activeStats.total) * 100) : 0;
+        els.categoryProgressLabel.textContent = `${activeStats.scored} dari ${activeStats.total} peserta dinilai`;
+        els.categoryPhotoLabel.textContent = `${photoCount}/${activeStats.total} foto`;
+        els.categoryProgressPct.textContent = `${pct}%`;
+        els.categoryProgressBar.style.width = `${pct}%`;
+      }
+
+      function createPhotoSlotButton({ photo, name, sizeClass, imgW, imgH, onClick }) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'photo-slot-btn' + (sizeClass ? ` ${sizeClass}` : '') + (photo ? ' has-photo' : '');
+        btn.setAttribute(
+          'aria-label',
+          photo ? `Lihat foto ${name}` : `Unggah foto untuk ${name}`
+        );
+
+        if (photo) {
+          const img = document.createElement('img');
+          img.className = 'photo-thumb';
+          img.src = photo.dataUrl;
+          img.alt = `Foto ${name}`;
+          img.width = imgW;
+          img.height = imgH;
+          btn.appendChild(img);
+        } else {
+          const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+          svg.setAttribute('width', '18');
+          svg.setAttribute('height', '18');
+          svg.setAttribute('viewBox', '0 0 16 16');
+          svg.setAttribute('fill', 'none');
+          svg.setAttribute('aria-hidden', 'true');
+          svg.innerHTML = '<rect x="1.5" y="3" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="5.5" cy="6.5" r="1.1" stroke="currentColor" stroke-width="1.2"/><path d="M2.5 11.5L6.2 8.2L9 10.5L11 8.8L13.5 11.5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>';
+          const lbl = document.createElement('span');
+          lbl.textContent = 'Foto';
+          btn.append(svg, lbl);
+        }
+
+        btn.addEventListener('click', onClick);
+        return btn;
+      }
+
+      function setPhotoBusyMessage(message) {
+        const active = Boolean(message);
+        els.photoProcessingBar.hidden = !active;
+        els.photoProcessingBar.textContent = message || '';
+        els.managePhotoStatus.hidden = !active;
+        els.managePhotoStatus.textContent = message || '';
+      }
+
+      function triggerSinglePhotoUpload(catKey, uid) {
+        pendingSinglePhotoTarget = { catKey, uid };
+        els.singlePhotoInput.value = '';
+        els.singlePhotoInput.click();
+      }
+
+      function triggerBulkPhotoUpload(catKey) {
+        pendingBulkPhotoCat = catKey;
+        els.bulkPhotoInput.value = '';
+        els.bulkPhotoInput.click();
+      }
+
+      function openPhotoLightbox({ mode, catKey, index, items }) {
+        lightboxContext = { mode, catKey, index, items };
+        renderLightboxCurrent();
+        openDialog(els.dialogPhoto);
+      }
+
+      function renderLightboxCurrent() {
+        if (!lightboxContext || !lightboxContext.items || lightboxContext.items.length === 0) return;
+        const { mode, catKey, index, items } = lightboxContext;
+        const current = items[index];
+        const cat = CATEGORY_MAP[catKey];
+        const photo = mode === 'scoring'
+          ? photoCache.get(current.uid)
+          : current.photo;
+
+        els.lightboxStamp.textContent = current.id || '-';
+        els.dialogPhotoTitle.textContent = current.name || `Peserta ${current.id}`;
+        els.lightboxSubtitle.textContent = `${cat.label} | ${index + 1} dari ${items.length}`;
+
+        if (photo) {
+          els.lightboxImg.src = photo.dataUrl;
+          els.lightboxImg.alt = `Foto ${current.name || current.id}`;
+          els.lightboxImg.width = photo.width || 720;
+          els.lightboxImg.height = photo.height || 900;
+          els.lightboxImg.hidden = false;
+          els.lightboxEmptyStage.hidden = true;
+        } else {
+          els.lightboxImg.src = '';
+          els.lightboxImg.alt = '';
+          els.lightboxImg.hidden = true;
+          els.lightboxEmptyStage.hidden = false;
+          els.lightboxEmptyUploadBtn.hidden = mode !== 'scoring';
+        }
+
+        els.lightboxPrevBtn.disabled = index <= 0;
+        els.lightboxNextBtn.disabled = index >= items.length - 1;
+
+        if (mode === 'scoring') {
+          els.lightboxScoreBar.hidden = false;
+          els.lightboxScoreBar.classList.toggle('has-comment', cat.hasComment);
+          els.lightboxManageGroup.hidden = false;
+          els.lightboxReplaceBtn.textContent = photo ? 'Ganti Foto' : 'Unggah Foto';
+          els.lightboxDeleteBtn.hidden = !photo;
+          els.lightboxScoreLabel.textContent = `Nilai ${cat.label} (0 sampai 100)`;
+          els.lightboxScoreInput.value = current.scoreRaw || '';
+          const check = parseScore(current.scoreRaw);
+          els.lightboxScoreInput.classList.toggle('input-invalid', !check.valid);
+          els.lightboxScoreInput.setAttribute('aria-invalid', String(!check.valid));
+          els.lightboxScoreError.hidden = check.valid;
+          els.lightboxScoreError.textContent = check.error;
+
+          els.lightboxCommentWrap.hidden = !cat.hasComment;
+          if (cat.hasComment) {
+            els.lightboxCommentInput.value = current.comment || '';
+          }
+        } else {
+          els.lightboxScoreBar.hidden = true;
+          els.lightboxManageGroup.hidden = true;
+        }
+      }
+
+      async function handleSinglePhotoSelected(file) {
+        if (!file || !pendingSinglePhotoTarget) return;
+        const { catKey, uid } = pendingSinglePhotoTarget;
+        const list = state.categories[catKey] || [];
+        const participant = list.find((p) => p.uid === uid);
+        if (!participant) return;
+
+        setPhotoBusyMessage(`Mengompres dan menyimpan foto untuk ${participant.name}...`);
+        try {
+          const compressed = await compressImageFile(file);
+          await persistPhoto(participant.uid, compressed);
+          setPhotoBusyMessage('');
+          renderScoringList();
+          if (els.dialogParticipants.open) renderParticipantManagerList();
+          if (els.dialogPhoto.open && lightboxContext) renderLightboxCurrent();
+          if (state.activeView === 'recap') renderRecapView();
+          showToast(
+            photoDbAvailable
+              ? `Foto ${participant.name} tersimpan (${compressed.width}x${compressed.height}px).`
+              : `Foto ${participant.name} dimuat di memori sesi ini.`
+          );
+        } catch (err) {
+          setPhotoBusyMessage('');
+          els.manageErrorMsg.textContent = err.message || 'Gagal memproses foto.';
+          if (els.dialogParticipants.open) els.manageErrorMsg.hidden = false;
+          showToast(err.message || 'Gagal memproses foto.');
+        } finally {
+          pendingSinglePhotoTarget = null;
+        }
+      }
+
+      async function handleBulkPhotosSelected(fileList) {
+        const files = Array.from(fileList || []);
+        const catKey = pendingBulkPhotoCat || state.activeCategory;
+        pendingBulkPhotoCat = null;
+        if (files.length === 0) return;
+
+        const list = state.categories[catKey] || [];
+        if (list.length === 0) {
+          state.categories[catKey] = createPresetParticipants(files.length);
+          saveState();
+        }
+        const targetList = state.categories[catKey];
+
+        // Sort files naturally so 01, 02, 10 assign in human numeric order.
+        files.sort((a, b) => a.name.localeCompare(b.name, 'id', { numeric: true }));
+
+        const usedUids = new Set();
+        let successCount = 0;
+        const failedNames = [];
+
+        for (let i = 0; i < files.length; i++) {
+          const file = files[i];
+          setPhotoBusyMessage(`Mengompres foto ${i + 1} dari ${files.length} (${file.name})...`);
+
+          let target = null;
+          const numMatch = file.name.match(/\d+/);
+          if (numMatch) {
+            const rawNum = numMatch[0];
+            const numInt = parseInt(rawNum, 10);
+            target = targetList.find(
+              (p) => !usedUids.has(p.uid) && (p.id.trim() === rawNum || parseInt(p.id, 10) === numInt)
+            );
+          }
+          if (!target) {
+            target = targetList.find((p) => !usedUids.has(p.uid) && !photoCache.has(p.uid))
+              || targetList.find((p) => !usedUids.has(p.uid));
+          }
+          if (!target) {
+            const nextId = getNextParticipantNumber(catKey);
+            const cleanBase = file.name.replace(/\.[^.]+$/, '').trim();
+            target = {
+              uid: `p_photo_${Date.now()}_${i}_${Math.random().toString(36).slice(2, 5)}`,
+              id: nextId,
+              name: cleanBase || `Peserta ${nextId}`,
+              scoreRaw: '',
+              comment: ''
+            };
+            targetList.push(target);
+          }
+
+          try {
+            const compressed = await compressImageFile(file);
+            await persistPhoto(target.uid, compressed);
+            usedUids.add(target.uid);
+            successCount++;
+          } catch (err) {
+            failedNames.push(file.name);
+          }
+        }
+
+        saveState();
+        setPhotoBusyMessage('');
+        renderScoringList();
+        if (els.dialogParticipants.open) renderParticipantManagerList();
+
+        if (failedNames.length > 0) {
+          const msg = `${successCount} foto berhasil diunggah, ${failedNames.length} gagal (${failedNames.slice(0, 3).join(', ')}).`;
+          if (els.dialogParticipants.open) {
+            els.manageErrorMsg.textContent = msg;
+            els.manageErrorMsg.hidden = false;
+          }
+          showToast(msg);
+        } else {
+          showToast(`${successCount} foto peserta berhasil diunggah ke ${CATEGORY_MAP[catKey].label}.`);
+        }
+      }
+
+      function exportParticipantPackage() {
+        const pkg = {
+          format: 'LEMBAR_NILAI_PACKAGE_V1',
+          exportedAt: new Date().toISOString(),
+          categories: {}
+        };
+        let photoTotal = 0;
+
+        for (const cat of CATEGORIES) {
+          pkg.categories[cat.key] = (state.categories[cat.key] || []).map((item) => {
+            const photo = photoCache.get(item.uid);
+            if (photo) photoTotal++;
+            return {
+              id: item.id,
+              name: item.name,
+              photo: photo ? { dataUrl: photo.dataUrl, width: photo.width, height: photo.height } : null
+            };
+          });
+        }
+
+        const blob = new Blob([JSON.stringify(pkg)], { type: 'application/json;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const stamp = new Date().toISOString().slice(0, 10);
+        link.href = url;
+        link.download = `paket-peserta-foto-${stamp}.json`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast(`Paket peserta & ${photoTotal} foto berhasil diekspor.`);
+      }
+
+      async function importParticipantPackage(file) {
+        if (!file) return;
+        setPhotoBusyMessage('Membaca dan memuat paket peserta & foto...');
+        try {
+          const text = await file.text();
+          const pkg = JSON.parse(text);
+          if (!pkg || pkg.format !== 'LEMBAR_NILAI_PACKAGE_V1' || !pkg.categories || typeof pkg.categories !== 'object') {
+            throw new Error('Format file bukan paket peserta & foto yang valid.');
+          }
+
+          let importedCount = 0;
+          let photoTotal = 0;
+
+          for (const cat of CATEGORIES) {
+            const rawList = Array.isArray(pkg.categories[cat.key]) ? pkg.categories[cat.key] : [];
+            const nextList = [];
+            for (let i = 0; i < rawList.length; i++) {
+              const row = rawList[i];
+              if (!row || typeof row !== 'object') continue;
+              const id = typeof row.id === 'string' && row.id.trim() ? row.id.trim() : padTwo(i + 1);
+              const name = typeof row.name === 'string' && row.name.trim() ? row.name.trim() : `Peserta ${id}`;
+              const uid = `p_imp_${cat.key}_${i}_${Date.now()}_${Math.random().toString(36).slice(2, 5)}`;
+              nextList.push({ uid, id, name, scoreRaw: '', comment: '' });
+              importedCount++;
+              if (row.photo && typeof row.photo.dataUrl === 'string' && row.photo.dataUrl.startsWith('data:image/')) {
+                await persistPhoto(uid, {
+                  dataUrl: row.photo.dataUrl,
+                  width: Number(row.photo.width) || 720,
+                  height: Number(row.photo.height) || 900
+                });
+                photoTotal++;
+              }
+            }
+            state.categories[cat.key] = nextList;
+          }
+
+          await pruneOrphanedPhotos();
+          saveState();
+          setPhotoBusyMessage('');
+          els.manageErrorMsg.hidden = true;
+          renderParticipantManagerList();
+          renderScoringList();
+          if (state.activeView === 'recap') renderRecapView();
+          showToast(`Paket dimuat: ${importedCount} peserta dan ${photoTotal} foto siap dinilai.`);
+        } catch (err) {
+          setPhotoBusyMessage('');
+          const msg = err.message || 'Gagal mengimpor paket peserta.';
+          els.manageErrorMsg.textContent = msg;
+          els.manageErrorMsg.hidden = false;
+          showToast(msg);
+        }
+      }
+
+      function updateViewVisibility() {
+        const isScoring = state.activeView === 'scoring';
+        els.viewScoring.hidden = !isScoring;
+        els.viewRecap.hidden = isScoring;
+        els.mobileActionBar.style.display = isScoring ? '' : 'none';
+
+        if (isScoring) {
+          els.navScoring.setAttribute('aria-current', 'page');
+          els.navRecap.removeAttribute('aria-current');
+        } else {
+          els.navRecap.setAttribute('aria-current', 'page');
+          els.navScoring.removeAttribute('aria-current');
+          renderRecapView();
+        }
+      }
+
+      function updateCategoryTabsUI() {
+        const tabs = els.categoryTablist.querySelectorAll('[role="tab"]');
+        tabs.forEach((tab) => {
+          const selected = tab.dataset.category === state.activeCategory;
+          tab.setAttribute('aria-selected', String(selected));
+          tab.tabIndex = selected ? 0 : -1;
+        });
+
+        const activeCat = CATEGORY_MAP[state.activeCategory];
+        els.panelScoring.setAttribute('aria-labelledby', `tab-${activeCat.key}`);
+        els.activeCategoryTitle.textContent = activeCat.label;
+        els.activeCategoryRule.textContent = activeCat.ruleText;
+
+        document.querySelectorAll('[data-filter]').forEach((btn) => {
+          btn.setAttribute('aria-pressed', String(btn.dataset.filter === state.filterMode));
+        });
+      }
+
+      function renderScoringList() {
+        updateCategoryTabsUI();
+        updateProgressCounters();
+
+        const cat = CATEGORY_MAP[state.activeCategory];
+        const allItems = state.categories[cat.key];
+        els.scoringListContainer.innerHTML = '';
+
+        if (allItems.length === 0) {
+          const empty = document.createElement('div');
+          empty.className = 'state-box';
+
+          const title = document.createElement('h4');
+          title.className = 'state-title';
+          title.textContent = `Belum ada peserta di kategori ${cat.label}`;
+
+          const desc = document.createElement('p');
+          desc.className = 'state-desc';
+          desc.textContent = 'Tambahkan peserta satu per satu atau buat preset cepat nomor 01 sampai 10 agar siap dinilai.';
+
+          const actions = document.createElement('div');
+          actions.className = 'state-actions';
+
+          const presetBtn = document.createElement('button');
+          presetBtn.type = 'button';
+          presetBtn.className = 'btn btn-primary';
+          presetBtn.textContent = 'Buat Preset 01 s.d. 10';
+          presetBtn.addEventListener('click', () => {
+            state.categories[cat.key] = createPresetParticipants(10);
+            saveState();
+            renderScoringList();
+            showToast(`Preset 10 peserta dibuat untuk ${cat.label}.`);
+          });
+
+          const addBtn = document.createElement('button');
+          addBtn.type = 'button';
+          addBtn.className = 'btn';
+          addBtn.textContent = 'Kelola Peserta';
+          addBtn.addEventListener('click', () => openParticipantManager(cat.key));
+
+          actions.append(presetBtn, addBtn);
+          empty.append(title, desc, actions);
+          els.scoringListContainer.appendChild(empty);
+          return;
+        }
+
+        const filtered = allItems.filter((item) => {
+          const p = parseScore(item.scoreRaw);
+          if (state.filterMode === 'scored') return !p.empty && p.valid;
+          if (state.filterMode === 'unscored') return p.empty || !p.valid;
+          return true;
+        });
+
+        if (filtered.length === 0) {
+          const empty = document.createElement('div');
+          empty.className = 'state-box';
+
+          const title = document.createElement('h4');
+          title.className = 'state-title';
+          title.textContent = state.filterMode === 'unscored'
+            ? `Semua peserta di ${cat.label} sudah dinilai`
+            : `Belum ada peserta yang dinilai di ${cat.label}`;
+
+          const desc = document.createElement('p');
+          desc.className = 'state-desc';
+          desc.textContent = state.filterMode === 'unscored'
+            ? 'Tidak ada peserta tersisa yang belum terisi nilainya. Kamu bisa pindah kategori atau generate kode penilaian.'
+            : 'Filter "Sudah dinilai" masih kosong. Kembali ke tampilan semua peserta untuk mulai mengisi nilai.';
+
+          const showAllBtn = document.createElement('button');
+          showAllBtn.type = 'button';
+          showAllBtn.className = 'btn';
+          showAllBtn.textContent = 'Tampilkan Semua Peserta';
+          showAllBtn.addEventListener('click', () => {
+            state.filterMode = 'all';
+            saveState();
+            renderScoringList();
+          });
+
+          empty.append(title, desc, showAllBtn);
+          els.scoringListContainer.appendChild(empty);
+          return;
+        }
+
+        const wrapper = document.createElement('div');
+        wrapper.className = cat.hasComment ? 'royalty-list' : 'costume-grid';
+
+        filtered.forEach((item) => {
+          const parsed = parseScore(item.scoreRaw);
+          const scoreInputId = `score-${cat.key}-${item.uid}`;
+          const errorId = `err-${cat.key}-${item.uid}`;
+
+          const card = document.createElement('article');
+          card.className = cat.hasComment ? 'royalty-card' : 'costume-card';
+          if (!parsed.valid) card.classList.add('has-error');
+          else if (!parsed.empty) card.classList.add('is-scored');
+
+          const errorEl = document.createElement('p');
+          errorEl.id = errorId;
+          errorEl.className = 'field-error';
+          errorEl.setAttribute('role', 'alert');
+          errorEl.hidden = parsed.valid;
+          errorEl.textContent = parsed.error;
+
+          const scoreInput = document.createElement('input');
+          scoreInput.type = 'text';
+          scoreInput.inputMode = 'decimal';
+          scoreInput.id = scoreInputId;
+          scoreInput.className = 'score-input' + (parsed.valid ? '' : ' input-invalid');
+          scoreInput.value = item.scoreRaw;
+          scoreInput.placeholder = '0-100';
+          scoreInput.autocomplete = 'off';
+          scoreInput.setAttribute('aria-invalid', String(!parsed.valid));
+          if (!parsed.valid) scoreInput.setAttribute('aria-describedby', errorId);
+
+          scoreInput.addEventListener('input', (e) => {
+            item.scoreRaw = e.target.value;
+            const check = parseScore(item.scoreRaw);
+            card.classList.toggle('has-error', !check.valid);
+            card.classList.toggle('is-scored', check.valid && !check.empty);
+            scoreInput.classList.toggle('input-invalid', !check.valid);
+            scoreInput.setAttribute('aria-invalid', String(!check.valid));
+            if (!check.valid) {
+              errorEl.textContent = check.error;
+              errorEl.hidden = false;
+              scoreInput.setAttribute('aria-describedby', errorId);
+            } else {
+              errorEl.textContent = '';
+              errorEl.hidden = true;
+              scoreInput.removeAttribute('aria-describedby');
+            }
+            saveState();
+            updateProgressCounters();
+            refreshErrorBannerIfVisible();
+          });
+
+          scoreInput.addEventListener('blur', () => {
+            const check = parseScore(item.scoreRaw);
+            if (check.valid && !check.empty) {
+              const formatted = formatScore(check.value);
+              item.scoreRaw = formatted;
+              scoreInput.value = formatted;
+              saveState();
+            }
+          });
+
+          const itemPhoto = photoCache.get(item.uid) || null;
+          const openOrUploadPhoto = () => {
+            if (photoCache.has(item.uid)) {
+              const idxInAll = allItems.findIndex((x) => x.uid === item.uid);
+              openPhotoLightbox({
+                mode: 'scoring',
+                catKey: cat.key,
+                index: Math.max(0, idxInAll),
+                items: allItems
+              });
+            } else {
+              triggerSinglePhotoUpload(cat.key, item.uid);
+            }
+          };
+
+          if (!cat.hasComment) {
+            const topRow = document.createElement('div');
+            topRow.className = 'costume-top';
+
+            const photoBtn = createPhotoSlotButton({
+              photo: itemPhoto,
+              name: item.name,
+              sizeClass: '',
+              imgW: 60,
+              imgH: 75,
+              onClick: openOrUploadPhoto
+            });
+
+            const mainCol = document.createElement('div');
+            mainCol.className = 'costume-main';
+
+            const idGroup = document.createElement('div');
+            idGroup.className = 'participant-id-group';
+
+            const stamp = document.createElement('span');
+            stamp.className = 'ballot-stamp';
+            stamp.textContent = item.id || '-';
+
+            const nameLabel = document.createElement('label');
+            nameLabel.className = 'participant-name';
+            nameLabel.htmlFor = scoreInputId;
+            nameLabel.textContent = item.name;
+
+            idGroup.append(stamp, nameLabel);
+
+            const scoreRow = document.createElement('div');
+            scoreRow.className = 'costume-score-row';
+
+            const scoreBox = document.createElement('div');
+            scoreBox.className = 'score-box';
+
+            const unit = document.createElement('span');
+            unit.className = 'score-unit tabular';
+            unit.textContent = '/ 100';
+
+            scoreBox.append(scoreInput, unit);
+
+            const photoActionBtn = document.createElement('button');
+            photoActionBtn.type = 'button';
+            photoActionBtn.className = 'photo-caption-link';
+            photoActionBtn.textContent = itemPhoto ? 'Lihat Foto' : 'Unggah Foto';
+            photoActionBtn.setAttribute(
+              'aria-label',
+              itemPhoto ? `Perbesar foto ${item.name}` : `Unggah foto ${item.name}`
+            );
+            photoActionBtn.addEventListener('click', openOrUploadPhoto);
+
+            scoreRow.append(scoreBox, photoActionBtn);
+            mainCol.append(idGroup, scoreRow);
+            topRow.append(photoBtn, mainCol);
+            card.append(topRow, errorEl);
+          } else {
+            const left = document.createElement('div');
+            left.className = 'royalty-left';
+
+            const headerGrid = document.createElement('div');
+            headerGrid.className = 'royalty-header-grid';
+
+            const photoBtn = createPhotoSlotButton({
+              photo: itemPhoto,
+              name: item.name,
+              sizeClass: 'photo-slot-lg',
+              imgW: 72,
+              imgH: 90,
+              onClick: openOrUploadPhoto
+            });
+
+            const infoCol = document.createElement('div');
+            infoCol.className = 'royalty-info-col';
+
+            const idGroup = document.createElement('div');
+            idGroup.className = 'participant-id-group';
+
+            const stamp = document.createElement('span');
+            stamp.className = 'ballot-stamp';
+            stamp.textContent = item.id || '-';
+
+            const nameHeading = document.createElement('div');
+            nameHeading.className = 'participant-name';
+            nameHeading.textContent = item.name;
+
+            idGroup.append(stamp, nameHeading);
+
+            const scoreFieldWrap = document.createElement('div');
+            const scoreLbl = document.createElement('label');
+            scoreLbl.className = 'field-label';
+            scoreLbl.htmlFor = scoreInputId;
+            scoreLbl.textContent = `Nilai ${cat.label} (0 sampai 100)`;
+
+            const scoreBox = document.createElement('div');
+            scoreBox.className = 'score-box';
+
+            const unit = document.createElement('span');
+            unit.className = 'score-unit tabular';
+            unit.textContent = '/ 100';
+
+            scoreBox.append(scoreInput, unit);
+            scoreFieldWrap.append(scoreLbl, scoreBox, errorEl);
+
+            const photoActionBtn = document.createElement('button');
+            photoActionBtn.type = 'button';
+            photoActionBtn.className = 'photo-caption-link';
+            photoActionBtn.style.alignSelf = 'flex-start';
+            photoActionBtn.textContent = itemPhoto ? 'Lihat Foto Penuh' : 'Unggah Foto';
+            photoActionBtn.setAttribute(
+              'aria-label',
+              itemPhoto ? `Perbesar foto ${item.name}` : `Unggah foto ${item.name}`
+            );
+            photoActionBtn.addEventListener('click', openOrUploadPhoto);
+
+            infoCol.append(idGroup, scoreFieldWrap, photoActionBtn);
+            headerGrid.append(photoBtn, infoCol);
+            left.appendChild(headerGrid);
+
+            const right = document.createElement('div');
+            right.className = 'royalty-right';
+
+            const commentId = `comment-${cat.key}-${item.uid}`;
+            const commentLbl = document.createElement('label');
+            commentLbl.className = 'field-label';
+            commentLbl.htmlFor = commentId;
+            commentLbl.textContent = 'Komentar Juri';
+
+            const textarea = document.createElement('textarea');
+            textarea.id = commentId;
+            textarea.className = 'input-textarea';
+            textarea.rows = 2;
+            textarea.maxLength = 600;
+            textarea.placeholder = `Catatan penilaian untuk ${item.name} (mendukung teks bebas dan emoji)`;
+            textarea.value = item.comment || '';
+
+            const meta = document.createElement('div');
+            meta.className = 'comment-meta';
+            const hintSpan = document.createElement('span');
+            hintSpan.textContent = 'Opsional, ikut terekam dalam kode kombinasi';
+            const countSpan = document.createElement('span');
+            countSpan.className = 'tabular';
+            countSpan.textContent = `${(item.comment || '').length}/600`;
+
+            textarea.addEventListener('input', (e) => {
+              item.comment = e.target.value;
+              countSpan.textContent = `${item.comment.length}/600`;
+              saveState();
+            });
+
+            meta.append(hintSpan, countSpan);
+            right.append(commentLbl, textarea, meta);
+
+            card.append(left, right);
+          }
+
+          wrapper.appendChild(card);
+        });
+
+        els.scoringListContainer.appendChild(wrapper);
+      }
+
+      function refreshErrorBannerIfVisible() {
+        if (els.scoringErrorBanner.hidden) return;
+        const errors = findAllValidationErrors();
+        if (errors.length === 0) {
+          els.scoringErrorBanner.hidden = true;
+          els.scoringErrorBannerText.innerHTML = '';
+        }
+      }
+
+      function handleGenerateCode() {
+        const errors = findAllValidationErrors();
+        if (errors.length > 0) {
+          const first = errors[0];
+          els.scoringErrorBanner.hidden = false;
+          els.scoringErrorBannerText.innerHTML = '';
+
+          const msg = document.createElement('div');
+          msg.textContent = `Ada ${errors.length} nilai tidak valid. Perbaiki dulu sebelum membuat kode (pertama di ${first.categoryLabel}, ${first.id} ${first.name}: ${first.error})`;
+          els.scoringErrorBannerText.appendChild(msg);
+
+          if (state.activeCategory !== first.category || state.filterMode !== 'all') {
+            state.activeCategory = first.category;
+            state.filterMode = 'all';
+            renderScoringList();
+          }
+          const targetInput = document.getElementById(`score-${first.category}-${first.uid}`);
+          if (targetInput) {
+            targetInput.focus();
+            targetInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          announce(`Gagal membuat kode: ditemukan ${errors.length} nilai tidak valid.`);
+          return;
+        }
+
+        els.scoringErrorBanner.hidden = true;
+
+        if (!state.judgeName.trim()) {
+          els.scoringErrorBanner.hidden = false;
+          els.scoringErrorBannerText.textContent = 'Isi Nama atau Kode Juri terlebih dahulu (misalnya: Juri 1 atau Budi) sebelum membuat kode penilaian.';
+          els.judgeNameInput.focus();
+          els.judgeNameInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          announce('Nama atau kode juri wajib diisi sebelum membuat kode penilaian.');
+          return;
+        }
+
+        const payload = buildPayloadFromState();
+        const totalScoredEntries = CATEGORIES.reduce(
+          (acc, c) => acc + payload.c[c.key].filter((x) => x.s !== null).length,
+          0
+        );
+
+        if (totalScoredEntries === 0) {
+          els.scoringErrorBanner.hidden = false;
+          els.scoringErrorBannerText.textContent = 'Belum ada satu pun nilai peserta yang diisi. Masukkan minimal satu nilai untuk membuat kode penilaian.';
+          announce('Belum ada nilai peserta yang diisi.');
+          return;
+        }
+
+        const code = encodeScorePayload(payload);
+        els.generatedCodeOutput.value = code;
+        els.generatedCodeMeta.textContent = `${code.length} karakter`;
+        els.copyCodeLabel.textContent = 'Salin Kode';
+
+        els.codeSummaryGrid.innerHTML = '';
+        let totalMissing = 0;
+
+        for (const cat of CATEGORIES) {
+          const allList = state.categories[cat.key];
+          const scoredList = payload.c[cat.key].filter((x) => x.s !== null);
+          const commentCount = cat.hasComment ? payload.c[cat.key].filter((x) => Boolean(x.m)).length : 0;
+          const missing = Math.max(0, allList.length - scoredList.length);
+          totalMissing += missing;
+
+          const box = document.createElement('div');
+          box.className = 'summary-item';
+
+          const h = document.createElement('div');
+          h.style.fontWeight = '700';
+          h.style.fontSize = '0.9rem';
+          h.textContent = cat.label;
+
+          const stat = document.createElement('div');
+          stat.className = 'tabular';
+          stat.style.fontSize = '0.85rem';
+          stat.style.marginTop = '0.2rem';
+          stat.textContent = `${scoredList.length}/${allList.length} dinilai`;
+
+          const avg = scoredList.length > 0
+            ? scoredList.reduce((acc, r) => acc + r.s, 0) / scoredList.length
+            : null;
+          const avgLine = document.createElement('div');
+          avgLine.className = 'tabular';
+          avgLine.style.fontSize = '0.8rem';
+          avgLine.style.color = 'var(--ink-secondary)';
+          avgLine.textContent = avg !== null ? `Rata-rata sementara: ${formatAverage(avg)}` : 'Belum ada nilai';
+
+          box.append(h, stat, avgLine);
+          if (cat.hasComment) {
+            const cLine = document.createElement('div');
+            cLine.className = 'tabular';
+            cLine.style.fontSize = '0.8rem';
+            cLine.style.color = 'var(--ink-secondary)';
+            cLine.textContent = `${commentCount} komentar tertulis`;
+            box.appendChild(cLine);
+          }
+
+          els.codeSummaryGrid.appendChild(box);
+        }
+
+        if (totalMissing > 0) {
+          els.codeWarningBox.hidden = false;
+          els.codeWarningBox.textContent = `Catatan: masih ada ${totalMissing} peserta yang belum diisi nilainya. Peserta kosong tetap dilewati dari perhitungan rata-rata saat rekap.`;
+        } else {
+          els.codeWarningBox.hidden = true;
+          els.codeWarningBox.textContent = '';
+        }
+
+        els.codeDetailList.innerHTML = '';
+        const metaRow = document.createElement('div');
+        metaRow.style.marginBottom = '0.55rem';
+        metaRow.textContent = `Juri: ${payload.j} | Dibuat: ${formatDateTimeLocal(payload.ts)}`;
+        els.codeDetailList.appendChild(metaRow);
+
+        for (const cat of CATEGORIES) {
+          const rows = payload.c[cat.key];
+          const heading = document.createElement('div');
+          heading.style.fontWeight = '700';
+          heading.style.marginTop = '0.5rem';
+          heading.textContent = `${cat.label} (${rows.length} entri)`;
+          els.codeDetailList.appendChild(heading);
+
+          if (rows.length === 0) {
+            const emptyP = document.createElement('div');
+            emptyP.style.color = 'var(--ink-secondary)';
+            emptyP.textContent = 'Tidak ada data pada kategori ini.';
+            els.codeDetailList.appendChild(emptyP);
+            continue;
+          }
+
+          const ul = document.createElement('ul');
+          ul.className = 'bullet-list';
+          rows.forEach((r) => {
+            const li = document.createElement('li');
+            li.className = 'tabular';
+            const scoreStr = r.s !== null ? formatScore(r.s) : '(tanpa nilai)';
+            li.textContent = `${r.id ? `[${r.id}] ` : ''}${r.n}: ${scoreStr}${r.m ? ` | Komentar: ${r.m}` : ''}`;
+            ul.appendChild(li);
+          });
+          els.codeDetailList.appendChild(ul);
+        }
+
+        openDialog(els.dialogCode);
+        announce('Kode kombinasi penilaian berhasil dibuat.');
+      }
+
+      async function copyGeneratedCode() {
+        const text = els.generatedCodeOutput.value;
+        if (!text) return;
+
+        let copied = false;
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          try {
+            await navigator.clipboard.writeText(text);
+            copied = true;
+          } catch (err) {
+            copied = false;
+          }
+        }
+
+        if (!copied) {
+          els.generatedCodeOutput.focus();
+          els.generatedCodeOutput.select();
+          try {
+            copied = document.execCommand('copy');
+          } catch (err) {
+            copied = false;
+          }
+        }
+
+        if (copied) {
+          els.copyCodeLabel.textContent = 'Kode Disalin';
+          showToast('Kode kombinasi berhasil disalin ke clipboard.');
+        } else {
+          showToast('Silakan salin kode secara manual dari kotak teks.');
+        }
+      }
+
+      function openParticipantManager(categoryKey) {
+        els.manageCatSelect.value = categoryKey || state.activeCategory;
+        els.manageErrorMsg.hidden = true;
+        els.newParticipantId.value = '';
+        els.newParticipantName.value = '';
+        els.bulkNamesInput.value = '';
+        renderParticipantManagerList();
+        openDialog(els.dialogParticipants);
+      }
+
+      function getNextParticipantNumber(catKey) {
+        const list = state.categories[catKey] || [];
+        let maxNum = 0;
+        list.forEach((item) => {
+          const parsed = parseInt(item.id, 10);
+          if (!Number.isNaN(parsed) && parsed > maxNum) maxNum = parsed;
+        });
+        return padTwo(Math.max(maxNum + 1, list.length + 1));
+      }
+
+      function renderParticipantManagerList() {
+        const catKey = els.manageCatSelect.value;
+        const list = state.categories[catKey] || [];
+        els.manageCountLabel.textContent = `${list.length} peserta`;
+        els.newParticipantId.placeholder = getNextParticipantNumber(catKey);
+        els.manageParticipantsList.innerHTML = '';
+
+        if (list.length === 0) {
+          const p = document.createElement('p');
+          p.className = 'field-hint';
+          p.textContent = 'Belum ada peserta pada kategori ini. Gunakan preset cepat atau formulir tambah di atas.';
+          els.manageParticipantsList.appendChild(p);
+          return;
+        }
+
+        list.forEach((item, index) => {
+          const row = document.createElement('div');
+          row.className = 'participant-manage-row';
+
+          const itemPhoto = photoCache.get(item.uid) || null;
+          const thumbBtn = createPhotoSlotButton({
+            photo: itemPhoto,
+            name: item.name,
+            sizeClass: 'photo-slot-sm',
+            imgW: 44,
+            imgH: 55,
+            onClick: () => triggerSinglePhotoUpload(catKey, item.uid)
+          });
+
+          const idInput = document.createElement('input');
+          idInput.type = 'text';
+          idInput.className = 'input-text font-mono-code';
+          idInput.value = item.id;
+          idInput.maxLength = 10;
+          idInput.setAttribute('aria-label', `Nomor peserta baris ${index + 1}`);
+          idInput.addEventListener('change', (e) => {
+            item.id = e.target.value.trim() || padTwo(index + 1);
+            idInput.value = item.id;
+            saveState();
+            renderScoringList();
+          });
+
+          const nameInput = document.createElement('input');
+          nameInput.type = 'text';
+          nameInput.className = 'input-text';
+          nameInput.value = item.name;
+          nameInput.maxLength = 80;
+          nameInput.setAttribute('aria-label', `Nama peserta nomor ${item.id}`);
+          nameInput.addEventListener('input', (e) => {
+            item.name = e.target.value;
+            saveState();
+            renderScoringList();
+          });
+          nameInput.addEventListener('blur', () => {
+            if (!item.name.trim()) {
+              item.name = `Peserta ${item.id}`;
+              nameInput.value = item.name;
+              saveState();
+              renderScoringList();
+            }
+          });
+
+          const actionsWrap = document.createElement('div');
+          actionsWrap.className = 'participant-manage-actions';
+
+          const uploadBtn = document.createElement('button');
+          uploadBtn.type = 'button';
+          uploadBtn.className = 'btn btn-sm';
+          uploadBtn.textContent = itemPhoto ? 'Ganti Foto' : 'Unggah Foto';
+          uploadBtn.setAttribute('aria-label', `${itemPhoto ? 'Ganti' : 'Unggah'} foto ${item.name}`);
+          uploadBtn.addEventListener('click', () => triggerSinglePhotoUpload(catKey, item.uid));
+          actionsWrap.appendChild(uploadBtn);
+
+          if (itemPhoto) {
+            const rmPhotoBtn = document.createElement('button');
+            rmPhotoBtn.type = 'button';
+            rmPhotoBtn.className = 'btn btn-sm btn-subtle';
+            rmPhotoBtn.textContent = 'Hapus Foto';
+            rmPhotoBtn.setAttribute('aria-label', `Hapus foto ${item.name}`);
+            rmPhotoBtn.addEventListener('click', async () => {
+              await removePhoto(item.uid);
+              renderParticipantManagerList();
+              renderScoringList();
+              if (state.activeView === 'recap') renderRecapView();
+              showToast(`Foto ${item.name} dihapus.`);
+            });
+            actionsWrap.appendChild(rmPhotoBtn);
+          }
+
+          const delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'btn btn-sm btn-danger';
+          delBtn.setAttribute('aria-label', `Hapus ${item.name}`);
+          delBtn.textContent = 'Hapus';
+          delBtn.addEventListener('click', async () => {
+            state.categories[catKey] = list.filter((p) => p.uid !== item.uid);
+            await removePhoto(item.uid);
+            saveState();
+            renderParticipantManagerList();
+            renderScoringList();
+            showToast(`Peserta ${item.name} dihapus.`);
+          });
+          actionsWrap.appendChild(delBtn);
+
+          row.append(thumbBtn, idInput, nameInput, actionsWrap);
+          els.manageParticipantsList.appendChild(row);
+        });
+      }
+
+      function processRecapInput() {
+        const raw = els.recapCodesInput.value;
+        state.recapRawInput = raw;
+
+        if (!raw.trim()) {
+          els.recapProcessingStatus.textContent = '';
+          els.recapErrorsContainer.innerHTML = '';
+          const alert = document.createElement('div');
+          alert.className = 'alert-box alert-warn';
+          alert.setAttribute('role', 'alert');
+          alert.textContent = 'Kotak kode masih kosong. Tempel minimal satu kode SCOREV1: dari juri terlebih dahulu.';
+          els.recapErrorsContainer.appendChild(alert);
+          return;
+        }
+
+        els.recapProcessingStatus.textContent = 'Memeriksa format dan memverifikasi checksum CRC-32...';
+        els.decodeCodesBtn.disabled = true;
+
+        // Defer decode by one animation frame so processing status paints cleanly for screen readers and large pastes.
+        requestAnimationFrame(() => {
+          const candidates = extractCodeCandidates(raw);
+          const decodedValid = [];
+          const errors = [];
+          const seenExactCodes = new Set();
+
+          candidates.forEach((cand) => {
+            const res = decodeScoreCode(cand.raw);
+            if (!res.ok) {
+              errors.push({
+                lineNumber: cand.lineNumber,
+                snippet: cand.raw.slice(0, 36) + (cand.raw.length > 36 ? '...' : ''),
+                error: res.error
+              });
+              return;
+            }
+            if (seenExactCodes.has(res.code)) {
+              errors.push({
+                lineNumber: cand.lineNumber,
+                snippet: `Juri ${res.data.j}`,
+                error: 'Kode identik sudah ditempel sebelumnya (duplikat dilewati otomatis).'
+              });
+              return;
+            }
+            seenExactCodes.add(res.code);
+            decodedValid.push({
+              entryId: `j_${res.checksum}_${decodedValid.length}_${Date.now()}`,
+              code: res.code,
+              checksum: res.checksum,
+              data: res.data
+            });
+          });
+
+          if (decodedValid.length > 0) {
+            state.recapEntries = decodedValid;
+            saveState();
+          }
+
+          els.decodeCodesBtn.disabled = false;
+          els.recapProcessingStatus.textContent = `Selesai: ${decodedValid.length} kode valid${errors.length ? `, ${errors.length} catatan/kesalahan` : ''}.`;
+          renderRecapErrors(errors);
+          renderRecapView();
+          announce(`Proses selesai. ${decodedValid.length} kode juri valid tergabung.`);
+        });
+      }
+
+      function renderRecapErrors(errors) {
+        els.recapErrorsContainer.innerHTML = '';
+        if (!errors || errors.length === 0) return;
+
+        const box = document.createElement('div');
+        box.className = 'alert-box alert-error';
+        box.setAttribute('role', 'alert');
+        box.style.flexDirection = 'column';
+        box.style.gap = '0.4rem';
+
+        const heading = document.createElement('strong');
+        heading.textContent = `Ditemukan ${errors.length} kode bermasalah atau dilewati:`;
+        box.appendChild(heading);
+
+        const ul = document.createElement('ul');
+        ul.className = 'bullet-list';
+        errors.forEach((e) => {
+          const li = document.createElement('li');
+          li.textContent = `Baris ${e.lineNumber} (${e.snippet}): ${e.error}`;
+          ul.appendChild(li);
+        });
+        box.appendChild(ul);
+
+        const guide = document.createElement('div');
+        guide.style.fontSize = '0.84rem';
+        guide.textContent = 'Minta juri mengirim ulang kode utuh tanpa terpotong jika terjadi ketidakcocokan checksum.';
+        box.appendChild(guide);
+
+        els.recapErrorsContainer.appendChild(box);
+      }
+
+      function renderRecapView() {
+        if (document.activeElement !== els.recapCodesInput) {
+          els.recapCodesInput.value = state.recapRawInput || '';
+        }
+
+        const entries = state.recapEntries || [];
+        els.verifiedJudgesCount.textContent = `${entries.length} juri`;
+        els.verifiedJudgesList.innerHTML = '';
+
+        // Detect duplicate judge names so committee spots double submissions immediately.
+        const nameCounts = new Map();
+        entries.forEach((e) => {
+          const key = e.data.j.trim().toLowerCase();
+          nameCounts.set(key, (nameCounts.get(key) || 0) + 1);
+        });
+
+        if (entries.length === 0) {
+          const empty = document.createElement('p');
+          empty.className = 'field-hint';
+          empty.textContent = 'Belum ada juri terverifikasi. Tempel kode di sebelah kiri lalu tekan Proses & Gabungkan Kode.';
+          els.verifiedJudgesList.appendChild(empty);
+        } else {
+          entries.forEach((entry) => {
+            const chip = document.createElement('div');
+            chip.className = 'judge-chip';
+
+            const info = document.createElement('div');
+            info.style.minWidth = '0';
+
+            const nameRow = document.createElement('div');
+            nameRow.style.display = 'flex';
+            nameRow.style.flexWrap = 'wrap';
+            nameRow.style.alignItems = 'center';
+            nameRow.style.gap = '0.4rem';
+
+            const nameEl = document.createElement('strong');
+            nameEl.textContent = entry.data.j;
+
+            const validTag = document.createElement('span');
+            validTag.className = 'tag tag-valid';
+            validTag.textContent = `CRC ${entry.checksum}`;
+
+            nameRow.append(nameEl, validTag);
+
+            if ((nameCounts.get(entry.data.j.trim().toLowerCase()) || 0) > 1) {
+              const dupTag = document.createElement('span');
+              dupTag.className = 'tag tag-warn';
+              dupTag.textContent = 'Nama juri ganda';
+              nameRow.appendChild(dupTag);
+            }
+
+            const counts = CATEGORIES.map((c) => {
+              const scored = (entry.data.c[c.key] || []).filter((r) => r.s !== null).length;
+              return `${c.label}: ${scored}`;
+            }).join(' | ');
+            const tsText = formatDateTimeLocal(entry.data.ts);
+
+            const sub = document.createElement('div');
+            sub.className = 'field-hint tabular';
+            sub.style.marginTop = '0.2rem';
+            sub.textContent = tsText ? `${counts} | ${tsText}` : counts;
+
+            info.append(nameRow, sub);
+
+            const rmBtn = document.createElement('button');
+            rmBtn.type = 'button';
+            rmBtn.className = 'btn btn-sm btn-danger';
+            rmBtn.setAttribute('aria-label', `Keluarkan kode dari ${entry.data.j}`);
+            rmBtn.textContent = 'Hapus';
+            rmBtn.addEventListener('click', () => {
+              state.recapEntries = state.recapEntries.filter((x) => x.entryId !== entry.entryId);
+              saveState();
+              renderRecapView();
+              showToast(`Kode dari ${entry.data.j} dikeluarkan dari rekap.`);
+            });
+
+            chip.append(info, rmBtn);
+            els.verifiedJudgesList.appendChild(chip);
+          });
+        }
+
+        els.recapResultsContainer.innerHTML = '';
+
+        if (entries.length === 0) {
+          els.recapResultsToolbar.hidden = true;
+
+          const emptySheet = document.createElement('div');
+          emptySheet.className = 'sheet state-box';
+
+          const h = document.createElement('h3');
+          h.className = 'state-title';
+          h.textContent = 'Belum ada hasil rekapitulasi';
+
+          const p = document.createElement('p');
+          p.className = 'state-desc';
+          p.textContent = 'Tempel satu atau beberapa kode kombinasi SCOREV1: dari para juri di kotak atas, lalu klik Proses & Gabungkan Kode untuk melihat peringkat rata-rata dan komentar King serta Queen.';
+
+          emptySheet.append(h, p);
+          els.recapResultsContainer.appendChild(emptySheet);
+          return;
+        }
+
+        els.recapResultsToolbar.hidden = false;
+        document.querySelectorAll('[data-recap-cat]').forEach((btn) => {
+          btn.setAttribute('aria-pressed', String(btn.dataset.recapCat === state.recapFilterCat));
+        });
+
+        const judgeListText = entries.map((e) => e.data.j).join(', ');
+        els.printMeta.textContent = `Dicetak: ${formatDateTimeLocal(new Date().toISOString())} | Total Juri: ${entries.length} (${judgeListText})`;
+
+        const aggregated = computeRecapAggregation(entries);
+
+        CATEGORIES.forEach((cat) => {
+          const rows = aggregated[cat.key];
+          const section = document.createElement('section');
+          section.className = 'sheet recap-cat-section';
+          section.setAttribute('aria-labelledby', `recap-heading-${cat.key}`);
+          if (state.recapFilterCat !== 'all' && state.recapFilterCat !== cat.key) {
+            section.hidden = true;
+          }
+
+          const header = document.createElement('div');
+          header.className = 'recap-cat-header';
+
+          const title = document.createElement('h3');
+          title.id = `recap-heading-${cat.key}`;
+          title.className = 'section-heading';
+          title.textContent = `Peringkat ${cat.label}`;
+
+          const scoredCount = rows.filter((r) => r.average !== null).length;
+          const meta = document.createElement('span');
+          meta.className = 'field-hint tabular';
+          meta.style.margin = '0';
+          meta.textContent = `${scoredCount} peserta memiliki nilai dari ${entries.length} juri`;
+
+          header.append(title, meta);
+          section.appendChild(header);
+
+          if (rows.length === 0) {
+            const empty = document.createElement('div');
+            empty.className = 'state-box';
+            const desc = document.createElement('p');
+            desc.className = 'state-desc';
+            desc.textContent = `Belum ada nilai yang masuk untuk kategori ${cat.label} dari kode yang digabungkan.`;
+            empty.appendChild(desc);
+            section.appendChild(empty);
+            els.recapResultsContainer.appendChild(section);
+            return;
+          }
+
+          const tableWrap = document.createElement('div');
+          tableWrap.className = 'leaderboard-table-wrap';
+
+          const table = document.createElement('table');
+          table.className = 'lb-table';
+
+          const thead = document.createElement('thead');
+          const headRow = document.createElement('tr');
+          ['Peringkat', 'Peserta', 'Rata-rata', 'Jumlah Juri', 'Rincian Nilai per Juri'].forEach((colText) => {
+            const th = document.createElement('th');
+            th.scope = 'col';
+            th.textContent = colText;
+            headRow.appendChild(th);
+          });
+          thead.appendChild(headRow);
+          table.appendChild(thead);
+
+          const recapPhotoItems = rows
+            .map((r) => ({ id: r.id, name: r.name, photo: getPhotoForRecapRow(cat.key, r.id) }))
+            .filter((r) => Boolean(r.photo));
+
+          const openRecapPhoto = (rowId) => {
+            const normId = String(rowId || '').trim().toUpperCase();
+            const idx = recapPhotoItems.findIndex((x) => String(x.id || '').trim().toUpperCase() === normId);
+            if (idx < 0) return;
+            openPhotoLightbox({
+              mode: 'recap',
+              catKey: cat.key,
+              index: idx,
+              items: recapPhotoItems
+            });
+          };
+
+          const tbody = document.createElement('tbody');
+          rows.forEach((row) => {
+            const tr = document.createElement('tr');
+            if (row.rank === 1) tr.className = 'rank-1';
+
+            const tdRank = document.createElement('td');
+            const badge = document.createElement('span');
+            badge.className = 'rank-badge' + (row.rank === 1 ? ' rank-badge-top' : '');
+            badge.textContent = row.rank !== null ? `#${row.rank}` : '-';
+            tdRank.appendChild(badge);
+
+            const tdName = document.createElement('td');
+            const nameWrap = document.createElement('div');
+            nameWrap.style.display = 'flex';
+            nameWrap.style.alignItems = 'center';
+            nameWrap.style.gap = '0.5rem';
+            const localPhoto = getPhotoForRecapRow(cat.key, row.id);
+            if (localPhoto) {
+              const thumb = createPhotoSlotButton({
+                photo: localPhoto,
+                name: row.name,
+                sizeClass: 'photo-slot-recap',
+                imgW: 40,
+                imgH: 50,
+                onClick: () => openRecapPhoto(row.id)
+              });
+              nameWrap.appendChild(thumb);
+            }
+            if (row.id) {
+              const st = document.createElement('span');
+              st.className = 'ballot-stamp';
+              st.style.minWidth = '2rem';
+              st.style.height = '1.8rem';
+              st.textContent = row.id;
+              nameWrap.appendChild(st);
+            }
+            const nm = document.createElement('span');
+            nm.style.fontWeight = '600';
+            nm.textContent = row.name;
+            nameWrap.appendChild(nm);
+            tdName.appendChild(nameWrap);
+
+            const tdAvg = document.createElement('td');
+            const avgSpan = document.createElement('span');
+            avgSpan.className = 'avg-score';
+            avgSpan.textContent = formatAverage(row.average);
+            tdAvg.appendChild(avgSpan);
+
+            const tdCount = document.createElement('td');
+            tdCount.className = 'tabular';
+            tdCount.textContent = `${row.judgeCount} juri`;
+
+            const tdBreak = document.createElement('td');
+            const brWrap = document.createElement('div');
+            brWrap.className = 'judge-breakdown';
+            if (row.scores.length === 0) {
+              const none = document.createElement('span');
+              none.className = 'field-hint';
+              none.style.margin = '0';
+              none.textContent = 'Belum dinilai';
+              brWrap.appendChild(none);
+            } else {
+              row.scores.forEach((sc) => {
+                const tag = document.createElement('span');
+                tag.className = 'tag tag-neutral tabular';
+                tag.textContent = `${sc.judge}: ${formatScore(sc.score)}`;
+                brWrap.appendChild(tag);
+              });
+            }
+            tdBreak.appendChild(brWrap);
+
+            tr.append(tdRank, tdName, tdAvg, tdCount, tdBreak);
+            tbody.appendChild(tr);
+          });
+          table.appendChild(tbody);
+          tableWrap.appendChild(table);
+          section.appendChild(tableWrap);
+
+          // Mobile stacked cards (avoids horizontal scroll leak on narrow screens)
+          const cardsWrap = document.createElement('div');
+          cardsWrap.className = 'leaderboard-cards';
+          rows.forEach((row) => {
+            const card = document.createElement('article');
+            card.className = 'lb-card' + (row.rank === 1 ? ' rank-1' : '');
+
+            const top = document.createElement('div');
+            top.style.display = 'flex';
+            top.style.alignItems = 'center';
+            top.style.justifyContent = 'space-between';
+            top.style.gap = '0.6rem';
+
+            const left = document.createElement('div');
+            left.style.display = 'flex';
+            left.style.alignItems = 'center';
+            left.style.gap = '0.5rem';
+            left.style.minWidth = '0';
+
+            const badge = document.createElement('span');
+            badge.className = 'rank-badge' + (row.rank === 1 ? ' rank-badge-top' : '');
+            badge.textContent = row.rank !== null ? `#${row.rank}` : '-';
+
+            const localPhoto = getPhotoForRecapRow(cat.key, row.id);
+            if (localPhoto) {
+              const thumb = createPhotoSlotButton({
+                photo: localPhoto,
+                name: row.name,
+                sizeClass: 'photo-slot-recap',
+                imgW: 40,
+                imgH: 50,
+                onClick: () => openRecapPhoto(row.id)
+              });
+              left.append(badge, thumb);
+            } else {
+              left.appendChild(badge);
+            }
+
+            const nameBox = document.createElement('div');
+            nameBox.style.minWidth = '0';
+            const nm = document.createElement('div');
+            nm.style.fontWeight = '700';
+            nm.textContent = row.id ? `${row.id} | ${row.name}` : row.name;
+            const sub = document.createElement('div');
+            sub.className = 'field-hint tabular';
+            sub.style.margin = '0';
+            sub.textContent = `Dinilai oleh ${row.judgeCount} juri`;
+            nameBox.append(nm, sub);
+
+            left.appendChild(nameBox);
+
+            const avgEl = document.createElement('div');
+            avgEl.className = 'avg-score';
+            avgEl.textContent = formatAverage(row.average);
+
+            top.append(left, avgEl);
+
+            const brWrap = document.createElement('div');
+            brWrap.className = 'judge-breakdown';
+            row.scores.forEach((sc) => {
+              const tag = document.createElement('span');
+              tag.className = 'tag tag-neutral tabular';
+              tag.textContent = `${sc.judge}: ${formatScore(sc.score)}`;
+              brWrap.appendChild(tag);
+            });
+
+            card.append(top, brWrap);
+            cardsWrap.appendChild(card);
+          });
+          section.appendChild(cardsWrap);
+
+          // Dedicated comments section exclusively for King and Queen
+          if (cat.hasComment) {
+            const withComments = rows.filter((r) => r.comments.length > 0);
+            const commentSheet = document.createElement('div');
+            commentSheet.className = 'comment-sheet';
+
+            const cTitle = document.createElement('h4');
+            cTitle.style.fontFamily = 'var(--font-display)';
+            cTitle.style.fontSize = '1.05rem';
+            cTitle.style.margin = '0';
+            cTitle.textContent = `Daftar Komentar Juri (${cat.label})`;
+            commentSheet.appendChild(cTitle);
+
+            if (withComments.length === 0) {
+              const p = document.createElement('p');
+              p.className = 'field-hint';
+              p.textContent = `Tidak ada komentar juri yang ditulis untuk kategori ${cat.label}.`;
+              commentSheet.appendChild(p);
+            } else {
+              withComments.forEach((row) => {
+                const grp = document.createElement('div');
+                grp.className = 'comment-group';
+
+                const grpHead = document.createElement('div');
+                grpHead.style.display = 'flex';
+                grpHead.style.flexWrap = 'wrap';
+                grpHead.style.justifyContent = 'space-between';
+                grpHead.style.gap = '0.4rem';
+
+                const pTitle = document.createElement('strong');
+                pTitle.textContent = `${row.rank !== null ? `#${row.rank} ` : ''}${row.id ? `[${row.id}] ` : ''}${row.name}`;
+
+                const pAvg = document.createElement('span');
+                pAvg.className = 'tabular';
+                pAvg.style.fontSize = '0.85rem';
+                pAvg.style.color = 'var(--ink-secondary)';
+                pAvg.textContent = `Rata-rata: ${formatAverage(row.average)}`;
+
+                grpHead.append(pTitle, pAvg);
+                grp.appendChild(grpHead);
+
+                row.comments.forEach((cm) => {
+                  const entry = document.createElement('div');
+                  entry.className = 'comment-entry';
+
+                  const author = document.createElement('div');
+                  author.style.fontSize = '0.8rem';
+                  author.style.fontWeight = '700';
+                  author.style.color = 'var(--accent-text)';
+                  author.textContent = cm.judge;
+
+                  const body = document.createElement('p');
+                  body.className = 'comment-body';
+                  body.textContent = cm.text;
+
+                  entry.append(author, body);
+                  grp.appendChild(entry);
+                });
+
+                commentSheet.appendChild(grp);
+              });
+            }
+
+            section.appendChild(commentSheet);
+          }
+
+          els.recapResultsContainer.appendChild(section);
+        });
+      }
+
+      // RFC 4180 CSV escaping with formula-prefix neutralization for spreadsheets.
+      function escapeCsvCell(value) {
+        let str = String(value == null ? '' : value);
+        if (/^[=+\-@\t\r]/.test(str)) {
+          str = `'${str}`;
+        }
+        if (/[",\r\n]/.test(str)) {
+          return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+      }
+
+      function exportRecapCsv() {
+        const entries = state.recapEntries || [];
+        if (entries.length === 0) {
+          showToast('Belum ada data rekap untuk diekspor.');
+          return;
+        }
+
+        const aggregated = computeRecapAggregation(entries);
+        const headers = [
+          'Kategori',
+          'Peringkat',
+          'Nomor Peserta',
+          'Nama Peserta',
+          'Rata-rata Nilai',
+          'Jumlah Juri',
+          'Rincian Nilai per Juri',
+          'Komentar Juri (King & Queen)'
+        ];
+
+        const lines = [headers.map(escapeCsvCell).join(',')];
+
+        CATEGORIES.forEach((cat) => {
+          aggregated[cat.key].forEach((row) => {
+            const breakdown = row.scores.map((s) => `${s.judge}: ${formatScore(s.score)}`).join('; ');
+            const comments = cat.hasComment
+              ? row.comments.map((c) => `[${c.judge}] ${c.text}`).join(' | ')
+              : '';
+            const cells = [
+              cat.label,
+              row.rank !== null ? row.rank : '-',
+              row.id,
+              row.name,
+              row.average !== null ? formatAverage(row.average) : '-',
+              row.judgeCount,
+              breakdown,
+              comments
+            ];
+            lines.push(cells.map(escapeCsvCell).join(','));
+          });
+        });
+
+        // Prepend UTF-8 BOM so Excel preserves Indonesian text and emoji characters.
+        const csvContent = '\uFEFF' + lines.join('\r\n');
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        const stamp = new Date().toISOString().slice(0, 10);
+        link.href = url;
+        link.download = `rekap-penilaian-juri-${stamp}.csv`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast('File CSV rekap penilaian berhasil diunduh.');
+      }
+
+      els.themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      els.navScoring.addEventListener('click', () => {
+        state.activeView = 'scoring';
+        saveState();
+        updateViewVisibility();
+      });
+
+      els.navRecap.addEventListener('click', () => {
+        state.activeView = 'recap';
+        saveState();
+        updateViewVisibility();
+      });
+
+      els.judgeNameInput.value = state.judgeName;
+      els.judgeNameInput.addEventListener('input', (e) => {
+        state.judgeName = e.target.value;
+        saveState();
+        updateProgressCounters();
+        if (state.judgeName.trim() && !els.scoringErrorBanner.hidden) {
+          refreshErrorBannerIfVisible();
+        }
+      });
+
+      // Category tabs click + ARIA keyboard navigation
+      const tabButtons = Array.from(els.categoryTablist.querySelectorAll('[role="tab"]'));
+      tabButtons.forEach((btn, index) => {
+        btn.addEventListener('click', () => {
+          state.activeCategory = btn.dataset.category;
+          saveState();
+          renderScoringList();
+        });
+
+        btn.addEventListener('keydown', (e) => {
+          let nextIdx = null;
+          if (e.key === 'ArrowRight') nextIdx = (index + 1) % tabButtons.length;
+          else if (e.key === 'ArrowLeft') nextIdx = (index - 1 + tabButtons.length) % tabButtons.length;
+          else if (e.key === 'Home') nextIdx = 0;
+          else if (e.key === 'End') nextIdx = tabButtons.length - 1;
+
+          if (nextIdx !== null) {
+            e.preventDefault();
+            const target = tabButtons[nextIdx];
+            state.activeCategory = target.dataset.category;
+            saveState();
+            renderScoringList();
+            target.focus();
+          }
+        });
+      });
+
+      document.querySelectorAll('[data-filter]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.filterMode = btn.dataset.filter;
+          saveState();
+          renderScoringList();
+        });
+      });
+
+      els.openParticipantsBtn.addEventListener('click', () => openParticipantManager(state.activeCategory));
+      els.quickAddParticipantBtn.addEventListener('click', () => openParticipantManager(state.activeCategory));
+      els.quickBulkPhotoBtn.addEventListener('click', () => triggerBulkPhotoUpload(state.activeCategory));
+      els.manageBulkPhotoBtn.addEventListener('click', () => triggerBulkPhotoUpload(els.manageCatSelect.value));
+      els.exportPackageBtn.addEventListener('click', exportParticipantPackage);
+      els.importPackageBtn.addEventListener('click', () => {
+        els.importPackageInput.value = '';
+        els.importPackageInput.click();
+      });
+
+      els.singlePhotoInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (file) handleSinglePhotoSelected(file);
+        els.singlePhotoInput.value = '';
+      });
+
+      els.bulkPhotoInput.addEventListener('change', (e) => {
+        if (e.target.files && e.target.files.length > 0) {
+          handleBulkPhotosSelected(e.target.files);
+        }
+        els.bulkPhotoInput.value = '';
+      });
+
+      els.importPackageInput.addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (file) importParticipantPackage(file);
+        els.importPackageInput.value = '';
+      });
+
+      els.lightboxPrevBtn.addEventListener('click', () => {
+        if (!lightboxContext || lightboxContext.index <= 0) return;
+        lightboxContext.index -= 1;
+        renderLightboxCurrent();
+      });
+
+      els.lightboxNextBtn.addEventListener('click', () => {
+        if (!lightboxContext || lightboxContext.index >= lightboxContext.items.length - 1) return;
+        lightboxContext.index += 1;
+        renderLightboxCurrent();
+      });
+
+      els.lightboxReplaceBtn.addEventListener('click', () => {
+        if (!lightboxContext || lightboxContext.mode !== 'scoring') return;
+        const current = lightboxContext.items[lightboxContext.index];
+        if (current) triggerSinglePhotoUpload(lightboxContext.catKey, current.uid);
+      });
+
+      els.lightboxEmptyUploadBtn.addEventListener('click', () => {
+        if (!lightboxContext || lightboxContext.mode !== 'scoring') return;
+        const current = lightboxContext.items[lightboxContext.index];
+        if (current) triggerSinglePhotoUpload(lightboxContext.catKey, current.uid);
+      });
+
+      els.lightboxDeleteBtn.addEventListener('click', async () => {
+        if (!lightboxContext || lightboxContext.mode !== 'scoring') return;
+        const current = lightboxContext.items[lightboxContext.index];
+        if (!current) return;
+        await removePhoto(current.uid);
+        renderLightboxCurrent();
+        renderScoringList();
+        if (els.dialogParticipants.open) renderParticipantManagerList();
+        showToast(`Foto ${current.name} dihapus.`);
+      });
+
+      els.lightboxScoreInput.addEventListener('input', (e) => {
+        if (!lightboxContext || lightboxContext.mode !== 'scoring') return;
+        const current = lightboxContext.items[lightboxContext.index];
+        if (!current) return;
+        current.scoreRaw = e.target.value;
+        const check = parseScore(current.scoreRaw);
+        els.lightboxScoreInput.classList.toggle('input-invalid', !check.valid);
+        els.lightboxScoreInput.setAttribute('aria-invalid', String(!check.valid));
+        els.lightboxScoreError.hidden = check.valid;
+        els.lightboxScoreError.textContent = check.error;
+        saveState();
+        renderScoringList();
+        refreshErrorBannerIfVisible();
+      });
+
+      els.lightboxScoreInput.addEventListener('blur', () => {
+        if (!lightboxContext || lightboxContext.mode !== 'scoring') return;
+        const current = lightboxContext.items[lightboxContext.index];
+        if (!current) return;
+        const check = parseScore(current.scoreRaw);
+        if (check.valid && !check.empty) {
+          const formatted = formatScore(check.value);
+          current.scoreRaw = formatted;
+          els.lightboxScoreInput.value = formatted;
+          saveState();
+          renderScoringList();
+        }
+      });
+
+      els.lightboxCommentInput.addEventListener('input', (e) => {
+        if (!lightboxContext || lightboxContext.mode !== 'scoring') return;
+        const current = lightboxContext.items[lightboxContext.index];
+        if (!current) return;
+        current.comment = e.target.value;
+        saveState();
+        renderScoringList();
+      });
+
+      els.dialogPhoto.addEventListener('keydown', (e) => {
+        if (!lightboxContext) return;
+        const tag = document.activeElement && document.activeElement.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        if (e.key === 'ArrowLeft' && lightboxContext.index > 0) {
+          e.preventDefault();
+          lightboxContext.index -= 1;
+          renderLightboxCurrent();
+        } else if (e.key === 'ArrowRight' && lightboxContext.index < lightboxContext.items.length - 1) {
+          e.preventDefault();
+          lightboxContext.index += 1;
+          renderLightboxCurrent();
+        }
+      });
+
+      els.generateCodeBtn.addEventListener('click', handleGenerateCode);
+      els.mobileGenerateBtn.addEventListener('click', handleGenerateCode);
+      els.copyCodeBtn.addEventListener('click', copyGeneratedCode);
+
+      els.sendToRecapBtn.addEventListener('click', () => {
+        const code = els.generatedCodeOutput.value.trim();
+        if (!code) return;
+        closeDialog(els.dialogCode);
+        const existing = (state.recapRawInput || '').trim();
+        state.recapRawInput = existing ? `${existing}\n${code}` : code;
+        els.recapCodesInput.value = state.recapRawInput;
+        state.activeView = 'recap';
+        saveState();
+        updateViewVisibility();
+        processRecapInput();
+      });
+
+      els.manageCatSelect.addEventListener('change', () => {
+        els.manageErrorMsg.hidden = true;
+        renderParticipantManagerList();
+      });
+
+      els.addParticipantForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const catKey = els.manageCatSelect.value;
+        const rawId = els.newParticipantId.value.trim() || getNextParticipantNumber(catKey);
+        const rawName = els.newParticipantName.value.trim() || `Peserta ${rawId}`;
+
+        const exists = state.categories[catKey].some(
+          (p) => p.id.trim().toUpperCase() === rawId.toUpperCase()
+        );
+        if (exists) {
+          els.manageErrorMsg.textContent = `Nomor peserta "${rawId}" sudah ada di kategori ini. Gunakan nomor lain.`;
+          els.manageErrorMsg.hidden = false;
+          els.newParticipantId.focus();
+          return;
+        }
+
+        els.manageErrorMsg.hidden = true;
+        state.categories[catKey].push({
+          uid: `p_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
+          id: rawId,
+          name: rawName,
+          scoreRaw: '',
+          comment: ''
+        });
+        els.newParticipantId.value = '';
+        els.newParticipantName.value = '';
+        saveState();
+        renderParticipantManagerList();
+        renderScoringList();
+        showToast(`Peserta ${rawId} (${rawName}) ditambahkan.`);
+      });
+
+      els.applyPresetCatBtn.addEventListener('click', () => {
+        const count = parseInt(els.presetCountInput.value, 10);
+        if (Number.isNaN(count) || count < 1 || count > 100) {
+          els.manageErrorMsg.textContent = 'Jumlah preset harus antara 1 sampai 100 peserta.';
+          els.manageErrorMsg.hidden = false;
+          return;
+        }
+        const catKey = els.manageCatSelect.value;
+        const catLabel = CATEGORY_MAP[catKey].label;
+        state.categories[catKey] = createPresetParticipants(count);
+        els.manageErrorMsg.hidden = true;
+        pruneOrphanedPhotos();
+        saveState();
+        renderParticipantManagerList();
+        renderScoringList();
+        showToast(`Preset 01 s.d. ${padTwo(count)} diterapkan untuk ${catLabel}.`);
+      });
+
+      els.applyPresetAllBtn.addEventListener('click', () => {
+        const count = parseInt(els.presetCountInput.value, 10);
+        if (Number.isNaN(count) || count < 1 || count > 100) {
+          els.manageErrorMsg.textContent = 'Jumlah preset harus antara 1 sampai 100 peserta.';
+          els.manageErrorMsg.hidden = false;
+          return;
+        }
+        for (const cat of CATEGORIES) {
+          state.categories[cat.key] = createPresetParticipants(count);
+        }
+        els.manageErrorMsg.hidden = true;
+        pruneOrphanedPhotos();
+        saveState();
+        renderParticipantManagerList();
+        renderScoringList();
+        showToast(`Preset 01 s.d. ${padTwo(count)} diterapkan ke semua kategori.`);
+      });
+
+      els.applyBulkNamesBtn.addEventListener('click', () => {
+        const lines = els.bulkNamesInput.value
+          .split(/\r?\n/)
+          .map((l) => l.trim())
+          .filter(Boolean);
+        if (lines.length === 0) {
+          els.manageErrorMsg.textContent = 'Daftar nama masih kosong. Tulis minimal satu nama peserta.';
+          els.manageErrorMsg.hidden = false;
+          return;
+        }
+        const catKey = els.manageCatSelect.value;
+        state.categories[catKey] = lines.map((name, idx) => ({
+          uid: `p_bulk_${idx}_${Date.now()}_${Math.random().toString(36).slice(2, 5)}`,
+          id: padTwo(idx + 1),
+          name,
+          scoreRaw: '',
+          comment: ''
+        }));
+        els.bulkNamesInput.value = '';
+        els.manageErrorMsg.hidden = true;
+        pruneOrphanedPhotos();
+        saveState();
+        renderParticipantManagerList();
+        renderScoringList();
+        showToast(`${lines.length} peserta diterapkan ke kategori ${CATEGORY_MAP[catKey].label}.`);
+      });
+
+      els.recapCodesInput.addEventListener('input', (e) => {
+        state.recapRawInput = e.target.value;
+        saveState();
+      });
+
+      els.decodeCodesBtn.addEventListener('click', processRecapInput);
+
+      els.loadCurrentJudgeBtn.addEventListener('click', () => {
+        const errors = findAllValidationErrors();
+        if (errors.length > 0) {
+          showToast(`Perbaiki ${errors.length} nilai tidak valid di halaman Penilaian terlebih dahulu.`);
+          return;
+        }
+        if (!state.judgeName.trim()) {
+          showToast('Isi Nama atau Kode Juri di halaman Penilaian terlebih dahulu.');
+          return;
+        }
+        const payload = buildPayloadFromState();
+        const hasAny = CATEGORIES.some((c) => payload.c[c.key].some((r) => r.s !== null));
+        if (!hasAny) {
+          showToast('Belum ada nilai yang diisi pada lembar juri saat ini.');
+          return;
+        }
+        const code = encodeScorePayload(payload);
+        const existing = els.recapCodesInput.value.trim();
+        els.recapCodesInput.value = existing ? `${existing}\n${code}` : code;
+        state.recapRawInput = els.recapCodesInput.value;
+        saveState();
+        processRecapInput();
+      });
+
+      els.clearRecapBtn.addEventListener('click', () => {
+        state.recapEntries = [];
+        state.recapRawInput = '';
+        els.recapCodesInput.value = '';
+        els.recapProcessingStatus.textContent = '';
+        els.recapErrorsContainer.innerHTML = '';
+        saveState();
+        renderRecapView();
+        showToast('Data rekap dibersihkan.');
+      });
+
+      document.querySelectorAll('[data-recap-cat]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          state.recapFilterCat = btn.dataset.recapCat;
+          saveState();
+          renderRecapView();
+        });
+      });
+
+      els.exportCsvBtn.addEventListener('click', exportRecapCsv);
+      els.printRecapBtn.addEventListener('click', () => {
+        window.print();
+      });
+
+      els.resetScoresBtn.addEventListener('click', () => {
+        requestConfirm(
+          'Reset Semua Nilai & Komentar?',
+          'Daftar peserta, foto peserta, dan nama juri tetap dipertahankan. Hanya angka nilai dan komentar pada ketiga kategori yang akan dikosongkan.',
+          'Kosongkan Nilai',
+          () => {
+            for (const cat of CATEGORIES) {
+              state.categories[cat.key].forEach((p) => {
+                p.scoreRaw = '';
+                p.comment = '';
+              });
+            }
+            els.scoringErrorBanner.hidden = true;
+            saveState();
+            renderScoringList();
+            showToast('Seluruh nilai dan komentar telah dikosongkan.');
+          }
+        );
+      });
+
+      els.resetAllBtn.addEventListener('click', () => {
+        requestConfirm(
+          'Reset Seluruh Data Aplikasi?',
+          'Identitas juri, daftar peserta, semua foto peserta, nilai, komentar, dan data rekap di browser ini akan dikembalikan ke kondisi awal (preset 01 s.d. 10).',
+          'Reset Semua',
+          async () => {
+            state = createInitialState();
+            await clearAllPhotos();
+            els.judgeNameInput.value = '';
+            els.recapCodesInput.value = '';
+            els.recapErrorsContainer.innerHTML = '';
+            els.recapProcessingStatus.textContent = '';
+            els.scoringErrorBanner.hidden = true;
+            saveState();
+            updateViewVisibility();
+            renderScoringList();
+            showToast('Seluruh data dan foto dikembalikan ke awal.');
+          }
+        );
+      });
+
+      els.dialogConfirmOk.addEventListener('click', () => {
+        const fn = confirmCallback;
+        confirmCallback = null;
+        closeDialog(els.dialogConfirm);
+        if (typeof fn === 'function') fn();
+      });
+
+      // Dialog close buttons, Escape handling, and backdrop click
+      document.querySelectorAll('[data-close-dialog]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const dialog = document.getElementById(btn.dataset.closeDialog);
+          if (dialog) closeDialog(dialog);
+        });
+      });
+
+      [els.dialogCode, els.dialogParticipants, els.dialogPhoto, els.dialogConfirm].forEach((dialog) => {
+        dialog.addEventListener('cancel', (e) => {
+          e.preventDefault();
+          closeDialog(dialog);
+        });
+        dialog.addEventListener('click', (e) => {
+          if (e.target === dialog) {
+            closeDialog(dialog);
+          }
+        });
+      });
+
+      initTheme();
+      updateAutosaveIndicator();
+      renderScoringList();
+      updateViewVisibility();
+      hydratePhotos().then(() => {
+        renderScoringList();
+        if (state.activeView === 'recap') renderRecapView();
+      });
+    })();
+  </script>
+</body>
+</html>
