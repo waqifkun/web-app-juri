@@ -119,59 +119,65 @@
         <div id="scoring-error-banner-text" style="flex:1;"></div>
       </div>
 
-      <div class="category-bar">
+      <div class="sheet scorecard-sheet">
         <div role="tablist" aria-label="Kategori penilaian" class="tablist" id="category-tablist">
           <button type="button" role="tab" id="tab-costume" aria-selected="true" aria-controls="panel-scoring" data-category="costume" class="tab-btn">
-            <span class="tab-title">Best Costume</span>
+            <span class="tab-head">
+              <span class="tab-num">01</span>
+              <span class="tab-title">Best Costume</span>
+            </span>
             <span class="tab-meta tabular" id="tab-meta-costume">0/10 dinilai</span>
           </button>
           <button type="button" role="tab" id="tab-king" aria-selected="false" aria-controls="panel-scoring" data-category="king" tabindex="-1" class="tab-btn">
-            <span class="tab-title">King</span>
+            <span class="tab-head">
+              <span class="tab-num">02</span>
+              <span class="tab-title">King</span>
+            </span>
             <span class="tab-meta tabular" id="tab-meta-king">0/10 dinilai</span>
           </button>
           <button type="button" role="tab" id="tab-queen" aria-selected="false" aria-controls="panel-scoring" data-category="queen" tabindex="-1" class="tab-btn">
-            <span class="tab-title">Queen</span>
+            <span class="tab-head">
+              <span class="tab-num">03</span>
+              <span class="tab-title">Queen</span>
+            </span>
             <span class="tab-meta tabular" id="tab-meta-queen">0/10 dinilai</span>
           </button>
         </div>
-      </div>
 
-      <div role="tabpanel" id="panel-scoring" aria-labelledby="tab-costume" class="sheet">
-        <div class="panel-header">
-          <div style="flex:1; min-width:0;">
-            <h3 id="active-category-title" class="section-heading">Best Costume</h3>
-            <p id="active-category-rule" class="field-hint" style="margin-top:0.25rem;">
-              Masukkan nilai angka 0 sampai 100 (mendukung desimal seperti 87.5). Kategori ini tidak menggunakan kolom komentar.
-            </p>
-            <div style="margin-top:0.65rem; max-width:24rem;">
-              <div style="display:flex; justify-content:space-between; gap:0.5rem; font-size:0.8rem; margin-bottom:0.25rem;">
-                <span id="category-progress-label" class="tabular" style="font-weight:600;">0 dari 10 peserta dinilai</span>
-                <span id="category-photo-label" class="tabular" style="color:var(--ink-secondary);">0/10 foto</span>
-                <span id="category-progress-pct" class="tabular" style="color:var(--ink-secondary);">0%</span>
+        <div role="tabpanel" id="panel-scoring" aria-labelledby="tab-costume">
+          <div class="panel-header">
+            <div style="flex:1; min-width:0;">
+              <h3 id="active-category-title" class="section-heading">Best Costume</h3>
+              <p id="active-category-rule" class="field-hint" style="margin-top:0.2rem;">
+                Masukkan nilai angka 0 sampai 100 (mendukung desimal seperti 87.5). Kategori ini tidak menggunakan kolom komentar.
+              </p>
+              <div style="margin-top:0.65rem; max-width:26rem;">
+                <div style="display:flex; justify-content:space-between; gap:0.5rem; font-size:0.8rem; margin-bottom:0.3rem;">
+                  <span id="category-progress-label" class="tabular" style="font-weight:600;">0 dari 10 peserta dinilai</span>
+                  <span id="category-photo-label" class="tabular" style="color:var(--ink-secondary);">0/10 foto</span>
+                  <span id="category-progress-pct" class="tabular" style="color:var(--ink-secondary);">0%</span>
+                </div>
+                <div class="progress-track" aria-hidden="true">
+                  <div id="category-progress-bar" class="progress-fill"></div>
+                </div>
               </div>
-              <div class="progress-track" aria-hidden="true">
-                <div id="category-progress-bar" class="progress-fill"></div>
+            </div>
+
+            <div class="filter-row">
+              <div class="filter-group" role="group" aria-label="Filter status peserta">
+                <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Semua</button>
+                <button type="button" class="filter-btn" data-filter="unscored" aria-pressed="false">Belum dinilai</button>
+                <button type="button" class="filter-btn" data-filter="scored" aria-pressed="false">Sudah dinilai</button>
               </div>
+              <button type="button" id="quick-bulk-photo-btn" class="btn btn-sm">
+                Unggah Foto Massal
+              </button>
             </div>
           </div>
 
-          <div class="filter-row">
-            <div class="filter-group" role="group" aria-label="Filter status peserta">
-              <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">Semua</button>
-              <button type="button" class="filter-btn" data-filter="unscored" aria-pressed="false">Belum dinilai</button>
-              <button type="button" class="filter-btn" data-filter="scored" aria-pressed="false">Sudah dinilai</button>
-            </div>
-            <button type="button" id="quick-bulk-photo-btn" class="btn btn-sm">
-              Unggah Foto Massal
-            </button>
-            <button type="button" id="quick-add-participant-btn" class="btn btn-sm btn-subtle">
-              Kelola Peserta
-            </button>
-          </div>
+          <div id="photo-processing-bar" class="photo-processing-bar" role="status" aria-live="polite" style="margin:0.85rem 1.25rem 0;" hidden></div>
+          <div id="scoring-list-container"></div>
         </div>
-
-        <div id="photo-processing-bar" class="photo-processing-bar" role="status" aria-live="polite" style="margin:0.85rem 1.15rem 0;" hidden></div>
-        <div id="scoring-list-container"></div>
       </div>
     </section>
 
@@ -1484,16 +1490,23 @@
           img.width = imgW;
           img.height = imgH;
           btn.appendChild(img);
+          if (!sizeClass || sizeClass === 'photo-slot-lg') {
+            const cap = document.createElement('span');
+            cap.className = 'photo-zoom-tag';
+            cap.setAttribute('aria-hidden', 'true');
+            cap.textContent = 'Lihat';
+            btn.appendChild(cap);
+          }
         } else {
           const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-          svg.setAttribute('width', '18');
-          svg.setAttribute('height', '18');
+          svg.setAttribute('width', '16');
+          svg.setAttribute('height', '16');
           svg.setAttribute('viewBox', '0 0 16 16');
           svg.setAttribute('fill', 'none');
           svg.setAttribute('aria-hidden', 'true');
-          svg.innerHTML = '<rect x="1.5" y="3" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><circle cx="5.5" cy="6.5" r="1.1" stroke="currentColor" stroke-width="1.2"/><path d="M2.5 11.5L6.2 8.2L9 10.5L11 8.8L13.5 11.5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>';
+          svg.innerHTML = '<rect x="1.5" y="3" width="13" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/><circle cx="5.5" cy="6.5" r="1.1" stroke="currentColor" stroke-width="1.2"/><path d="M2.5 11.5L6.2 8.2L9 10.5L11 8.8L13.5 11.5" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>';
           const lbl = document.createElement('span');
-          lbl.textContent = 'Foto';
+          lbl.textContent = '+ Foto';
           btn.append(svg, lbl);
         }
 
@@ -1979,13 +1992,10 @@
               photo: itemPhoto,
               name: item.name,
               sizeClass: '',
-              imgW: 60,
-              imgH: 75,
+              imgW: 56,
+              imgH: 70,
               onClick: openOrUploadPhoto
             });
-
-            const mainCol = document.createElement('div');
-            mainCol.className = 'costume-main';
 
             const idGroup = document.createElement('div');
             idGroup.className = 'participant-id-group';
@@ -2001,9 +2011,6 @@
 
             idGroup.append(stamp, nameLabel);
 
-            const scoreRow = document.createElement('div');
-            scoreRow.className = 'costume-score-row';
-
             const scoreBox = document.createElement('div');
             scoreBox.className = 'score-box';
 
@@ -2012,20 +2019,7 @@
             unit.textContent = '/ 100';
 
             scoreBox.append(scoreInput, unit);
-
-            const photoActionBtn = document.createElement('button');
-            photoActionBtn.type = 'button';
-            photoActionBtn.className = 'photo-caption-link';
-            photoActionBtn.textContent = itemPhoto ? 'Lihat Foto' : 'Unggah Foto';
-            photoActionBtn.setAttribute(
-              'aria-label',
-              itemPhoto ? `Perbesar foto ${item.name}` : `Unggah foto ${item.name}`
-            );
-            photoActionBtn.addEventListener('click', openOrUploadPhoto);
-
-            scoreRow.append(scoreBox, photoActionBtn);
-            mainCol.append(idGroup, scoreRow);
-            topRow.append(photoBtn, mainCol);
+            topRow.append(photoBtn, idGroup, scoreBox);
             card.append(topRow, errorEl);
           } else {
             const left = document.createElement('div');
@@ -2038,8 +2032,8 @@
               photo: itemPhoto,
               name: item.name,
               sizeClass: 'photo-slot-lg',
-              imgW: 72,
-              imgH: 90,
+              imgW: 68,
+              imgH: 85,
               onClick: openOrUploadPhoto
             });
 
@@ -2075,18 +2069,7 @@
             scoreBox.append(scoreInput, unit);
             scoreFieldWrap.append(scoreLbl, scoreBox, errorEl);
 
-            const photoActionBtn = document.createElement('button');
-            photoActionBtn.type = 'button';
-            photoActionBtn.className = 'photo-caption-link';
-            photoActionBtn.style.alignSelf = 'flex-start';
-            photoActionBtn.textContent = itemPhoto ? 'Lihat Foto Penuh' : 'Unggah Foto';
-            photoActionBtn.setAttribute(
-              'aria-label',
-              itemPhoto ? `Perbesar foto ${item.name}` : `Unggah foto ${item.name}`
-            );
-            photoActionBtn.addEventListener('click', openOrUploadPhoto);
-
-            infoCol.append(idGroup, scoreFieldWrap, photoActionBtn);
+            infoCol.append(idGroup, scoreFieldWrap);
             headerGrid.append(photoBtn, infoCol);
             left.appendChild(headerGrid);
 
@@ -3078,7 +3061,9 @@
       });
 
       els.openParticipantsBtn.addEventListener('click', () => openParticipantManager(state.activeCategory));
-      els.quickAddParticipantBtn.addEventListener('click', () => openParticipantManager(state.activeCategory));
+      if (els.quickAddParticipantBtn) {
+        els.quickAddParticipantBtn.addEventListener('click', () => openParticipantManager(state.activeCategory));
+      }
       els.quickBulkPhotoBtn.addEventListener('click', () => triggerBulkPhotoUpload(state.activeCategory));
       els.manageBulkPhotoBtn.addEventListener('click', () => triggerBulkPhotoUpload(els.manageCatSelect.value));
       els.exportPackageBtn.addEventListener('click', exportParticipantPackage);
